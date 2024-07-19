@@ -1,0 +1,3 @@
+app.c:25:6:APPLICATION	1
+app.c:34:6:extract_data	4
+app.c:61:6:pin_config	10

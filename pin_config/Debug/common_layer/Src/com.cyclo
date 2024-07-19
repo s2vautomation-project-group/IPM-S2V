@@ -1,0 +1,8 @@
+com.c:29:7:user_USART1_UART_Init	2
+com.c:60:7:user_GPIO_Init	3
+com.c:94:7:gpio_output	1
+com.c:106:7:gpio_input	1
+com.c:117:7:user_output_GPIO_Init	1
+com.c:156:7:data_receive	1
+com.c:162:13:read_gpio	1
+com.c:168:7:write_gpio	1
