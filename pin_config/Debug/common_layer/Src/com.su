@@ -1,8 +1,0 @@
-../common_layer/Src/com.c:29:7:user_USART1_UART_Init	8	static
-../common_layer/Src/com.c:60:7:user_GPIO_Init	48	static
-../common_layer/Src/com.c:94:7:gpio_output	40	static
-../common_layer/Src/com.c:106:7:gpio_input	40	static
-../common_layer/Src/com.c:117:7:user_output_GPIO_Init	40	static
-../common_layer/Src/com.c:156:7:data_receive	8	static
-../common_layer/Src/com.c:162:13:read_gpio	16	static
-../common_layer/Src/com.c:168:7:write_gpio	16	static
