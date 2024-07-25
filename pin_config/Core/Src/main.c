@@ -17,13 +17,13 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
+#include <com_config.h>
 #include "main.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <string.h>
-#include "app.h"
-#include "com.h"
+#include "app_config.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -42,16 +42,17 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-//UART_HandleTypeDef huart1;
+extern UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
-
+extern  char  buffer[20];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 //void SystemClock_Config(void);
 //static void MX_GPIO_Init(void);
 //static void MX_USART1_UART_Init(void);
+
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -93,6 +94,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
  user_USART1_UART_Init();
+HAL_UART_Receive_IT(&huart1,(uint8_t *)buffer,20);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -112,7 +114,6 @@ int main(void)
   * @retval None
   */
 //void SystemClock_Config(void)
-//
 //{
 //  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
 //  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
@@ -177,11 +178,11 @@ int main(void)
 //{
 //
 //  /* USER CODE BEGIN USART1_Init 0 */
-//////////////
+////////////////////
 //  /* USER CODE END USART1_Init 0 */
 //
 //  /* USER CODE BEGIN USART1_Init 1 */
-//////////////
+////////////////////
 //  /* USER CODE END USART1_Init 1 */
 //  huart1.Instance = USART1;
 //  huart1.Init.BaudRate = 9600;
@@ -198,7 +199,7 @@ int main(void)
 //    Error_Handler();
 //  }
 //  /* USER CODE BEGIN USART1_Init 2 */
-//////////////
+////////////////////
 //  /* USER CODE END USART1_Init 2 */
 //
 //}
@@ -246,15 +247,15 @@ int main(void)
 ///* USER CODE BEGIN MX_GPIO_Init_2 */
 ///* USER CODE END MX_GPIO_Init_2 */
 //}
-//
-///* USER CODE BEGIN 4 */
+
+/* USER CODE BEGIN 4 */
 //////////////
-///* USER CODE END 4 */
-//
-///**
-//  * @brief  This function is executed in case of error occurrence.
-//  * @retval None
-//  */
+/* USER CODE END 4 */
+
+/**
+  * @brief  This function is executed in case of error occurrence.
+  * @retval None
+  */
 void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
@@ -263,6 +264,7 @@ void Error_Handler(void)
   while (1)
   {
   }
+
   /* USER CODE END Error_Handler_Debug */
 }
 
@@ -277,8 +279,8 @@ void Error_Handler(void)
 //void assert_failed(uint8_t *file, uint32_t line)
 //{
 //  /* USER CODE BEGIN 6 */
-//////////////  /* User can add his own implementation to report the file name and line number,
-//////////////     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+//////////////////  /* User can add his own implementation to report the file name and line number,
+//////////////////     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
 //  /* USER CODE END 6 */
 //}
 //#endif /* USE_FULL_ASSERT */

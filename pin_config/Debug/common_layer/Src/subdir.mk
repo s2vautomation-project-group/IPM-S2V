@@ -5,13 +5,16 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../common_layer/Src/com.c 
+../common_layer/Src/Cqueue.c \
+../common_layer/Src/com_config.c 
 
 OBJS += \
-./common_layer/Src/com.o 
+./common_layer/Src/Cqueue.o \
+./common_layer/Src/com_config.o 
 
 C_DEPS += \
-./common_layer/Src/com.d 
+./common_layer/Src/Cqueue.d \
+./common_layer/Src/com_config.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -21,7 +24,7 @@ common_layer/Src/%.o common_layer/Src/%.su common_layer/Src/%.cyclo: ../common_l
 clean: clean-common_layer-2f-Src
 
 clean-common_layer-2f-Src:
-	-$(RM) ./common_layer/Src/com.cyclo ./common_layer/Src/com.d ./common_layer/Src/com.o ./common_layer/Src/com.su
+	-$(RM) ./common_layer/Src/Cqueue.cyclo ./common_layer/Src/Cqueue.d ./common_layer/Src/Cqueue.o ./common_layer/Src/Cqueue.su ./common_layer/Src/com_config.cyclo ./common_layer/Src/com_config.d ./common_layer/Src/com_config.o ./common_layer/Src/com_config.su
 
 .PHONY: clean-common_layer-2f-Src
 

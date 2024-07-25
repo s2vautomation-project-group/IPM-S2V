@@ -10,6 +10,7 @@
 #ifndef COMMON_INC_COM_H_
 #define COMMON_INC_COM_H_
 
+extern volatile uint8_t data_received_flag;
 
 typedef enum
 {

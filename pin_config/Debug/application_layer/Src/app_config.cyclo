@@ -1,0 +1,4 @@
+app_config.c:25:7:APPLICATION	1
+app_config.c:41:6:HAL_UART_RxCpltCallback	1
+app_config.c:47:6:extract_data	3
+app_config.c:75:6:pin_config	9

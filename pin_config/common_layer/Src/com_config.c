@@ -5,24 +5,27 @@
  *      Author: user
  */
 
+#include "com_config.h"
 #include "main.h"
-#include "com.h"
 #include <string.h>
-
-//GPIO1,A3,OUTPUT
-//GPIO1,A3,INPUT
-//GPIO1,A4,INPUT
-//GPIO2,A4,OUTPUT
-//GPIO3,A5,OUTPUT
-//GPIO3,A5,INPUT
-
-//GPIO4,A6,OUTPUT
-//GPIO4,A6,INPUT
+#include "Cqueue.h"
 
 
-char arr3[20];
-extern char  buffer[20];
-UART_HandleTypeDef huart1;
+//A5,OUTPUT
+//A5_INPUT
+//A6,INPUT
+//A6,OUTPUT
+//B0,OUTPUT
+//B0,INPUT
+
+//B1,OUTPUT
+//B1,INPUT
+
+
+
+//char arr3[20];
+ //extern volatile char  buffer[20];
+extern UART_HandleTypeDef huart1;
 GPIO_InitTypeDef GPIO_InitStruct = {0};
 
 
@@ -123,6 +126,7 @@ void SystemClock_Config(void)
    /* GPIO Ports Clock Enable */
    __HAL_RCC_GPIOC_CLK_ENABLE();
    __HAL_RCC_GPIOA_CLK_ENABLE();
+   __HAL_RCC_GPIOB_CLK_ENABLE();
 
    /*Configure GPIO pin Output Level */
      HAL_GPIO_WritePin(GPIOx, GPIO_Pin,PIN_mode);
@@ -210,10 +214,11 @@ void SystemClock_Config(void)
   }
 
 
- void data_receive()
- {
- 	HAL_UART_Receive(&huart1,(uint8_t *)buffer,20,500);
- }
+// void data_receive()
+// {
+//	 HAL_UART_Receive_IT(&huart1,(uint8_t *)buffer,20);
+// }
+
 
 
  myPinState read_gpio(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)

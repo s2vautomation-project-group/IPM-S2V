@@ -1,6 +1,5 @@
-application_layer/Src/app.o: ../application_layer/Src/app.c \
- E:/STM/pin_config/application_layer/Inc/app.h \
- E:/STM/pin_config/common_layer/Inc/com.h ../Core/Inc/main.h \
+application_layer/Src/app_config.o: ../application_layer/Src/app_config.c \
+ E:/STM/pin_config/common_layer/Inc/com_config.h ../Core/Inc/main.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h \
  ../Core/Inc/stm32l4xx_hal_conf.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h \
@@ -26,9 +25,9 @@ application_layer/Src/app.o: ../application_layer/Src/app.c \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pwr.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pwr_ex.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h \
- ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h
-E:/STM/pin_config/application_layer/Inc/app.h:
-E:/STM/pin_config/common_layer/Inc/com.h:
+ ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h \
+ E:/STM/pin_config/application_layer/Inc/app_config.h
+E:/STM/pin_config/common_layer/Inc/com_config.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
 ../Core/Inc/stm32l4xx_hal_conf.h:
@@ -56,3 +55,4 @@ E:/STM/pin_config/common_layer/Inc/com.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pwr_ex.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h:
+E:/STM/pin_config/application_layer/Inc/app_config.h:
