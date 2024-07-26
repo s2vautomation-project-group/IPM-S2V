@@ -1,0 +1,6 @@
+../Common_layer/Src/Uart.c:28:6:UART1_Init	8	static
+../Common_layer/Src/Uart.c:59:6:UART2_Init	8	static
+../Common_layer/Src/Uart.c:90:6:GsmCommands	16	static
+../Common_layer/Src/Uart.c:102:6:Gsm_Init	8	static
+../Common_layer/Src/Uart.c:141:6:DataToGsm	16	static
+../Common_layer/Src/Uart.c:149:6:DataToCloud	280	static
