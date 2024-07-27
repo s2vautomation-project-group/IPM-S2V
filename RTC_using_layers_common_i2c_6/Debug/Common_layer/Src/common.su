@@ -1,4 +1,0 @@
-../Common_layer/Src/common.c:13:6:User_SystemClock_Config	96	static
-../Common_layer/Src/common.c:70:6:USER_I2C1_Init	8	static
-../Common_layer/Src/common.c:115:6:I2C_Write	48	static
-../Common_layer/Src/common.c:121:6:I2C_read	32	static

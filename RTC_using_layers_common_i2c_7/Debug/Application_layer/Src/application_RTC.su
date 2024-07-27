@@ -1,0 +1,5 @@
+../Application_layer/Src/application_RTC.c:20:9:decToBcd	16	static
+../Application_layer/Src/application_RTC.c:26:5:bcdToDec	16	static
+../Application_layer/Src/application_RTC.c:44:6:Set_Time	48	static
+../Application_layer/Src/application_RTC.c:60:6:Get_Time	16	static
+../Application_layer/Src/application_RTC.c:84:6:app	16	static
