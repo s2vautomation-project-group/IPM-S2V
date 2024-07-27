@@ -22,13 +22,15 @@ UART_HandleTypeDef huart1;
 
 
 
- void APPLICATION()
+ void Configurator()
  {
+	 //HAL_Delay(1000);
+     //data_receive();
 
-	 //data_receive();
      extract_data();
      pin_config();
-//     HAL_Delay(1000);
+
+
 //     	 clear_buffer();
 
  }
@@ -38,15 +40,17 @@ UART_HandleTypeDef huart1;
 //	memset(buffer,0,sizeof (buffer));
 //}
 
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
- {
-
-   HAL_UART_Receive_IT(&huart1, (uint8_t *)buffer, 20);
- }
+//void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+// {
+//
+//   HAL_UART_Receive_IT(&huart1, (uint8_t *)buffer, 20);
+// }
 
 void extract_data()
 {
 	token = strtok(buffer, ",");
+
+
 		     if (token != NULL)
 		     {
 		         strncpy(arr1, token, sizeof(arr1) - 1);
@@ -110,7 +114,7 @@ void pin_config()
 							   if(A == 1)
 								{
 								   user_output_GPIO_Init();
-								   HAL_GPIO_WritePin(GPIOA,GPIO_PIN_3,PIN_SET);
+								   HAL_GPIO_WritePin(GPIOA,GPIO_PIN_3,PIN_SET);//
 								}
 
 									else

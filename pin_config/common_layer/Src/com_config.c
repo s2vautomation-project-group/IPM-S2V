@@ -24,7 +24,7 @@
 
 
 //char arr3[20];
- //extern volatile char  buffer[20];
+extern  char  buffer[20];
 extern UART_HandleTypeDef huart1;
 GPIO_InitTypeDef GPIO_InitStruct = {0};
 
@@ -216,7 +216,7 @@ void SystemClock_Config(void)
 
 // void data_receive()
 // {
-//	 HAL_UART_Receive_IT(&huart1,(uint8_t *)buffer,20);
+//	 HAL_UART_Receive(&huart1,(uint8_t *)buffer,20,1000);
 // }
 
 
@@ -230,6 +230,7 @@ void SystemClock_Config(void)
  void write_gpio(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin, myPinState PinState)
  {
     HAL_GPIO_WritePin(GPIOx, GPIO_Pin,PinState);
+
  }
 
 
