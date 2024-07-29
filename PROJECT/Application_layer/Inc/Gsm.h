@@ -11,6 +11,6 @@
 #include "main.h"
 #include "Uart.h"
 
-void DataTosend();
+void DataTosend(int rtcdatedata,int rtctimedata,float adcdata);
 
 #endif /* INC_GSM_H_ */
