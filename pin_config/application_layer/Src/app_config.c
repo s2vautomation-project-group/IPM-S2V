@@ -18,8 +18,8 @@ UART_HandleTypeDef huart1;
  char arr2[10];
  int A[4];
  char *token;
- int flag=1;
-int B;
+ int flag;
+ int* pin_status;
 
 
  void Configurator()
@@ -27,13 +27,13 @@ int B;
 
  while (1)
  {
-  if (flag && isBufferNullTerminated(buffer, 11))
+  if (flag)
   {
 	  extract_data();
 	  pin_config();
 	  break;
   }
-    B=readpin_status();
+   pin_status = readpin_status();
  }
  }
 	//data_receive();
@@ -52,26 +52,26 @@ int B;
 //   HAL_UART_Receive_IT(&huart1, (uint8_t *)buffer, 20);
 // }
 
- int readpin_status()
+ int* readpin_status()
  {
 	 A[0]=read_gpio( GPIOA,GPIO_PIN_5);
 	 A[1]=read_gpio( GPIOA,GPIO_PIN_6);
 	 A[2]=read_gpio( GPIOB,GPIO_PIN_0);
 	 A[3]=read_gpio( GPIOB,GPIO_PIN_1);
-	 return A[4];
+	 return A;
  }
 
-int isBufferNullTerminated(char *buffer, int bufferSize)
- {
-   for (int i = 8; i < bufferSize; i++)
-   {
-      if (buffer[i] == '\0')
-      {
-        return 1;  // Return 1 if null terminator is found
-      }
-   }
-        return 0;  // Return 0 if no null terminator is found
- }
+//int isBufferNullTerminated(char *buffer, int bufferSize)
+// {
+//   for (int i = 8; i < bufferSize; i++)
+//   {
+//      if (buffer[i] == '\0')
+//      {
+//        return 1;  // Return 1 if null terminator is found
+//      }
+//   }
+//        return 0;  // Return 0 if no null terminator is found
+// }
 void extract_data()
 {
 	token = strtok(buffer, ",");
