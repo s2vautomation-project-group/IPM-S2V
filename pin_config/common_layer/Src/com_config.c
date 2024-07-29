@@ -218,7 +218,7 @@ void SystemClock_Config(void)
 // {
 //	 HAL_UART_Receive(&huart1,(uint8_t *)buffer,20,1000);
 // }
-
+//
 
 
  myPinState read_gpio(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)

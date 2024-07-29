@@ -1,3 +1,5 @@
 ../application_layer/Src/app_config.c:25:7:Configurator	8	static
-../application_layer/Src/app_config.c:49:6:extract_data	8	static
-../application_layer/Src/app_config.c:79:6:pin_config	8	static
+../application_layer/Src/app_config.c:55:6:readpin_status	8	static
+../application_layer/Src/app_config.c:64:5:isBufferNullTerminated	24	static
+../application_layer/Src/app_config.c:75:6:extract_data	8	static
+../application_layer/Src/app_config.c:105:6:pin_config	8	static

@@ -46,7 +46,7 @@ extern UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
 extern  char  buffer[20];
-int flag=1;
+extern int flag;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -95,10 +95,9 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
  user_USART1_UART_Init();
-//HAL_UART_Receive_IT(&huart1,(uint8_t *)buffer,20);
+
  HAL_UART_Receive(&huart1,(uint8_t *)buffer,20,1000);
- if(strcmp(buffer,"A5,OUTPUT")==0)
-	 HAL_Delay(1000);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -108,17 +107,20 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	  if (buffer[0] != '\0')
+	   {
+	     flag = 1; // Set flag to indicate data has been received
+	   }
+	   else
+	   {
+	  	 flag=0;
+	   }
 
-
-	  while(flag==1)
-	  {
-	   Configurator();
-	   //flag=0;
-
-	  }
-  }
+	  Configurator();
+ }
   /* USER CODE END 3 */
 }
+
 
 
 /**

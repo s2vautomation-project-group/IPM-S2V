@@ -1,3 +1,5 @@
-app_config.c:25:7:Configurator	1
-app_config.c:49:6:extract_data	3
-app_config.c:79:6:pin_config	9
+app_config.c:25:7:Configurator	3
+app_config.c:55:6:readpin_status	1
+app_config.c:64:5:isBufferNullTerminated	3
+app_config.c:75:6:extract_data	3
+app_config.c:105:6:pin_config	9

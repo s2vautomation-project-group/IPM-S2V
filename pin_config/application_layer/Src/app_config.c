@@ -4,36 +4,42 @@
  *  Created on: Jun 28, 2024
  *      Author: user
  */
-
+#include <stdio.h>
 #include "com_config.h"
 #include "app_config.h"
 #include <string.h>
 #include "main.h"
 
-int A;
+
 int switch_val=0;
- char buffer[20];
+char buffer[11];
 UART_HandleTypeDef huart1;
  char arr1[20];
  char arr2[10];
-
+ int A[4];
  char *token;
-
-
+ int flag=1;
+int B;
 
 
  void Configurator()
  {
-	 //HAL_Delay(1000);
-     //data_receive();
 
-     extract_data();
-     pin_config();
-
-
-//     	 clear_buffer();
-
+ while (1)
+ {
+  if (flag && isBufferNullTerminated(buffer, 11))
+  {
+	  extract_data();
+	  pin_config();
+	  break;
+  }
+    B=readpin_status();
  }
+ }
+	//data_receive();
+   // clear_buffer();
+
+
 
 //void clear_buffer()
 //{
@@ -46,6 +52,26 @@ UART_HandleTypeDef huart1;
 //   HAL_UART_Receive_IT(&huart1, (uint8_t *)buffer, 20);
 // }
 
+ int readpin_status()
+ {
+	 A[0]=read_gpio( GPIOA,GPIO_PIN_5);
+	 A[1]=read_gpio( GPIOA,GPIO_PIN_6);
+	 A[2]=read_gpio( GPIOB,GPIO_PIN_0);
+	 A[3]=read_gpio( GPIOB,GPIO_PIN_1);
+	 return A[4];
+ }
+
+int isBufferNullTerminated(char *buffer, int bufferSize)
+ {
+   for (int i = 8; i < bufferSize; i++)
+   {
+      if (buffer[i] == '\0')
+      {
+        return 1;  // Return 1 if null terminator is found
+      }
+   }
+        return 0;  // Return 0 if no null terminator is found
+ }
 void extract_data()
 {
 	token = strtok(buffer, ",");
@@ -109,9 +135,9 @@ void pin_config()
 			              else if(strcmp(arr2,"INPUT")==0)
 					    {
 						   user_GPIO_Init(GPIOA,GPIO_PIN_5,INPUT);
-						   A=read_gpio( GPIOA,GPIO_PIN_5);
+						   A[0]=read_gpio( GPIOA,GPIO_PIN_5);
 							{
-							   if(A == 1)
+							   if(A[0] == 1)
 								{
 								   user_output_GPIO_Init();
 								   HAL_GPIO_WritePin(GPIOA,GPIO_PIN_3,PIN_SET);//
