@@ -1,0 +1,5 @@
+../Application_layer/Src/application.c:23:9:decToBcd	16	static
+../Application_layer/Src/application.c:29:5:bcdToDec	16	static
+../Application_layer/Src/application.c:47:6:Set_Time	48	static
+../Application_layer/Src/application.c:63:6:Get_Time	16	static
+../Application_layer/Src/application.c:87:6:app	16	static
