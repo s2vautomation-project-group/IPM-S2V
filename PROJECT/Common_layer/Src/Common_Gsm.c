@@ -146,7 +146,8 @@ void DataToGsm(uint8_t* rec_data)
 	GsmCommands((uint8_t*)ch);
 }
 
-void DataToCloud(int field,uint8_t* cloud_data)
+//DataToCloud(RTC_date_data,RTC_time_data,ADC_data);
+void DataToCloud(uint8_t* RTC_date_data,uint8_t* RTC_time_data,uint8_t* adc_data)
 {
 
 			char AT_RTCcloud_data[256];
@@ -156,7 +157,9 @@ void DataToCloud(int field,uint8_t* cloud_data)
 //				 GsmCommands((uint8_t*)"AT+HTTPTERM\r\n");
 				 GsmCommands((uint8_t*)"AT+HTTPINIT\r\n");
 
-					snprintf(AT_RTCcloud_data, sizeof(AT_RTCcloud_data), "AT+HTTPPARA=\"URL\",\https://api.thingspeak.com/update?api_key=Y1KDSHTWPIVWKUFJ&field%d=%s\"\r\n",field,cloud_data);
+//					snprintf(AT_RTCcloud_data, sizeof(AT_RTCcloud_data), "AT+HTTPPARA=\"URL\",\https://api.thingspeak.com/update?api_key=Y1KDSHTWPIVWKUFJ&field%d=%s\"\r\n",field,cloud_data);
+
+					snprintf(AT_RTCcloud_data,sizeof(AT_RTCcloud_data), "AT+HTTPPARA=\"URL\",\https://script.google.com/macros/s/AKfycbyqqjCHXcKWwFu4uCEfpEd_f2WFQiKbyG084cx9PSkYiwnDwenu58b_lH7QTOjnUJMlww/exec?field1=%s&field2=%s&field3=%s\"\r\n",RTC_date_data,RTC_time_data,adc_data);
 					GsmCommands((uint8_t*)AT_RTCcloud_data);
 					 GsmCommands((uint8_t*)"AT+HTTPACTION=0\r\n");
 

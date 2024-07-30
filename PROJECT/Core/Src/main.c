@@ -103,7 +103,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   Gsm_Init();
-  DataTosend(300,400,500.6);
+  DataTosend(200,300,400.5);
 
   /* USER CODE END 2 */
 
