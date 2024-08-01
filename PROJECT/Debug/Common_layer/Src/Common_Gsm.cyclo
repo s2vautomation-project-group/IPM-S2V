@@ -4,3 +4,4 @@ Common_Gsm.c:90:6:GsmCommands	1
 Common_Gsm.c:102:6:Gsm_Init	1
 Common_Gsm.c:130:6:DataToGsm	1
 Common_Gsm.c:158:6:DataToCloud	1
+Common_Gsm.c:188:7:url_encode	7

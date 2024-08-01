@@ -160,18 +160,48 @@ void DataToCloud(uint8_t* RTC_data,uint8_t* adc_data)
 
 			uint8_t AT_RTCcloud_data[256];
 
+			char* encoded_RTC_data = url_encode(RTC_data);
+			    char* encoded_adc_data = url_encode(adc_data);
+
+
 				//	RTCdata_to_cloud
 
-//				 GsmCommands((uint8_t*)"AT+HTTPTERM\r\n");
+				 GsmCommands((uint8_t*)"AT+HTTPTERM\r\n");
 				 GsmCommands((uint8_t*)"AT+HTTPINIT\r\n");
+
+
+				 snprintf(AT_RTCcloud_data, sizeof(AT_RTCcloud_data),"AT+HTTPPARA=\"URL\",\"https://script.google.com/macros/s/AKfycbyLSuScQBF1GOx4mF4KqTnwraq44K9x2roV38OmpNi6GQOP_srVrmM2XlQHFSWzKbMI/exec?field1=%s&field2=%s\"\r\n",encoded_RTC_data, encoded_adc_data);
 
 //					snprintf(AT_RTCcloud_data, sizeof(AT_RTCcloud_data), "AT+HTTPPARA=\"URL\",\https://api.thingspeak.com/update?api_key=Y1KDSHTWPIVWKUFJ&field%d=%s\"\r\n",field,cloud_data);
 
-				 snprintf(AT_RTCcloud_data,sizeof(AT_RTCcloud_data), "https://script.google.com/macros/s/AKfycbw1FgrrfOyLUpK_CBeDN2-HFtjkGn3GEhVS687Ts7NFyRDf-Gz4xD59qtQG0r87bcpV/exec?field1=%s&field2=%s\"\r\n",RTC_data,adc_data);
 
+//				 snprintf(AT_RTCcloud_data, sizeof(AT_RTCcloud_data),"AT+HTTPPARA=\"URL\",\"https://script.google.com/macros/s/AKfycbyLSuScQBF1GOx4mF4KqTnwraq44K9x2roV38OmpNi6GQOP_srVrmM2XlQHFSWzKbMI/exec?field1=%s&field2=%s\"\r\n",RTC_data,adc_data);
+//					snprintf(AT_RTCcloud_data,sizeof(AT_RTCcloud_data), "AT+HTTPPARA=\"URL\",\https://script.google.com/macros/s/AKfycbyRFUZ6mtG47oo06jN6elCj2Zq41r2QrjdROOz-AtCCj6mnL4hzXSkpr7Zdz16FgCHTXw/exec?field1=%s&field2=%s\"\r\n",(char*)RTC_data,(char*)adc_data);
 					GsmCommands((uint8_t*)AT_RTCcloud_data);
 					 GsmCommands((uint8_t*)"AT+HTTPACTION=0\r\n");
 
+					 free(encoded_RTC_data);
+					free(encoded_adc_data);
+
+}
+
+char* url_encode(const char* str) {
+    const char* hex = "0123456789ABCDEF";
+    char* encoded = malloc(strlen(str) * 3 + 1); // Allocate enough space
+    char* ptr = encoded;
+
+    while (*str) {
+        if (isalnum((unsigned char)*str) || *str == '-' || *str == '_' || *str == '.' || *str == '~') {
+            *ptr++ = *str;
+        } else {
+            *ptr++ = '%';
+            *ptr++ = hex[(*str >> 4) & 0xF];
+            *ptr++ = hex[*str & 0xF];
+        }
+        str++;
+    }
+    *ptr = '\0';
+    return encoded;
 }
 
 

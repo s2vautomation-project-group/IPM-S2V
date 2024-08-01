@@ -20,5 +20,6 @@ void DataToGsm(uint8_t* rec_data);
 void DataToCloud(uint8_t* RTC_data,uint8_t* adc_data);
 //void DataToCloud(int field,uint8_t* cloud_data);
 //void RTCDataToCloud(uint8_t* cloud_data);
+char* url_encode(const char* str);
 
 #endif /* INC_UART_H_ */

@@ -3,4 +3,5 @@
 ../Common_layer/Src/Common_Gsm.c:90:6:GsmCommands	16	static
 ../Common_layer/Src/Common_Gsm.c:102:6:Gsm_Init	8	static
 ../Common_layer/Src/Common_Gsm.c:130:6:DataToGsm	16	static
-../Common_layer/Src/Common_Gsm.c:158:6:DataToCloud	280	static
+../Common_layer/Src/Common_Gsm.c:158:6:DataToCloud	288	static
+../Common_layer/Src/Common_Gsm.c:188:7:url_encode	32	static
