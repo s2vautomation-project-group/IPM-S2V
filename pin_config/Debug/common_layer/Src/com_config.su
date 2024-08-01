@@ -4,5 +4,7 @@
 ../common_layer/Src/com_config.c:155:7:gpio_output	40	static
 ../common_layer/Src/com_config.c:167:7:gpio_input	40	static
 ../common_layer/Src/com_config.c:178:7:user_output_GPIO_Init	40	static
-../common_layer/Src/com_config.c:224:13:read_gpio	16	static
-../common_layer/Src/com_config.c:230:7:write_gpio	16	static
+../common_layer/Src/com_config.c:217:7:data_receive	8	static
+../common_layer/Src/com_config.c:222:7:status_transmit	8	static
+../common_layer/Src/com_config.c:227:13:read_gpio	16	static
+../common_layer/Src/com_config.c:233:7:write_gpio	16	static

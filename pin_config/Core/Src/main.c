@@ -76,7 +76,8 @@ int main(void)
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  HAL_Init();
+
+	HAL_Init();
 
   /* USER CODE BEGIN Init */
 
@@ -96,7 +97,7 @@ int main(void)
 
  user_USART1_UART_Init();
 
- HAL_UART_Receive(&huart1,(uint8_t *)buffer,20,1000);
+
 
   /* USER CODE END 2 */
 
@@ -107,16 +108,11 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  if (buffer[0] != '\0')
-	   {
-	     flag = 1; // Set flag to indicate data has been received
-	   }
-	   else
-	   {
-	  	 flag=0;
-	   }
+//	  HAL_UART_Receive(&huart1,(uint8_t *)buffer,20,1000);
+
 
 	  Configurator();
+	  //data_receive();
  }
   /* USER CODE END 3 */
 }

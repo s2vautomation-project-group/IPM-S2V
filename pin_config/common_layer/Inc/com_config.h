@@ -31,6 +31,7 @@ void gpio_output(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin,mode PIN_mode);
 void gpio_input(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin, mode PIN_mode);
 void user_USART1_UART_Init(void);
 void data_receive();
+void status_transmit();
 myPinState read_gpio(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin);
 void write_gpio(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin, myPinState PinState);
 

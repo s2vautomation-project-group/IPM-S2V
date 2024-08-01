@@ -8,7 +8,7 @@
 #ifndef APPLICATION_INC_APP_H_
 #define APPLICATION_INC_APP_H_
 
-int* readpin_status();
+char* readpin_status();
 void Configurator();
 void extract_data();
 void pin_config();

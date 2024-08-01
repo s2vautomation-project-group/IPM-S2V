@@ -3556,6 +3556,7 @@ HAL_StatusTypeDef UART_WaitOnFlagUntilTimeout(UART_HandleTypeDef *huart, uint32_
       if (READ_BIT(huart->Instance->CR1, USART_CR1_RE) != 0U)
       {
 
+
     	  if (__HAL_UART_GET_FLAG(huart, UART_FLAG_RTOF) == SET)
         {
           /* Clear Receiver Timeout flag*/

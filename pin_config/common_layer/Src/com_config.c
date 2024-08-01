@@ -23,11 +23,11 @@
 
 
 
-//char arr3[20];
+
 extern  char  buffer[20];
 extern UART_HandleTypeDef huart1;
 GPIO_InitTypeDef GPIO_InitStruct = {0};
-
+extern char A[4];
 
 void SystemClock_Config(void)
 
@@ -214,12 +214,15 @@ void SystemClock_Config(void)
   }
 
 
-// void data_receive()
-// {
-//	 HAL_UART_Receive(&huart1,(uint8_t *)buffer,20,1000);
-// }
-//
+ void data_receive()
+ {
+	 HAL_UART_Receive(&huart1,(uint8_t *)buffer,20,1000);
+ }
 
+ void status_transmit()
+ {
+	 HAL_UART_Transmit_IT(&huart1, (uint8_t *)A, 4);
+ }
 
  myPinState read_gpio(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
  {
