@@ -6,8 +6,8 @@
  */
 
 #include "main.h"
-#include "Uart.h"
-#include "Gsm.h"
+#include "Application_GSM.h"
+#include "Common_Gsm.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -17,14 +17,35 @@ char data[500]="Welcome_GSM";
 
 
 
-void DataTosend(int rtcdatedata,int rtctimedata,float adcdata)
+//void DataTosend(int rtcdatedata,int rtctimedata,float adcdata)
+//{
+//	uint8_t RTC_date_data[20];
+//	uint8_t RTC_time_data[20];
+//	uint8_t ADC_data[20];
+//	//DataToGsm(data);
+//	snprintf(RTC_date_data, sizeof(RTC_date_data), "%d", rtcdatedata);
+//	snprintf(RTC_time_data, sizeof(RTC_time_data), "%d", rtctimedata);
+//	snprintf(ADC_data, sizeof(ADC_data), "%.2f", adcdata);
+//
+////	DataToCloud(1,RTC_date_data);
+////	HAL_Delay(5000);
+////	DataToCloud(1,RTC_time_data);
+////	HAL_Delay(5000);
+////	DataToCloud(2,ADC_cloud_data);
+////	HAL_Delay(5000);
+//	DataToCloud(RTC_date_data,RTC_time_data,ADC_data);
+//
+//
+//}
+//
+
+
+void DataTosend(int hour,int minutes,int seconds,float adcdata)
 {
-	char RTC_date_data[20];
-	char RTC_time_data[20];
-	char ADC_data[20];
+	uint8_t RTC_data[20];
+	uint8_t ADC_data[20];
 	//DataToGsm(data);
-	snprintf(RTC_date_data, sizeof(RTC_date_data), "%d", rtcdatedata);
-	snprintf(RTC_time_data, sizeof(RTC_time_data), "%d", rtctimedata);
+	snprintf(RTC_data, sizeof(RTC_data), "%2d:%2d:%2d", hour,minutes,seconds);
 	snprintf(ADC_data, sizeof(ADC_data), "%.2f", adcdata);
 
 //	DataToCloud(1,RTC_date_data);
@@ -33,7 +54,7 @@ void DataTosend(int rtcdatedata,int rtctimedata,float adcdata)
 //	HAL_Delay(5000);
 //	DataToCloud(2,ADC_cloud_data);
 //	HAL_Delay(5000);
-	DataToCloud(RTC_date_data,RTC_time_data,ADC_data);
+	DataToCloud(RTC_data,ADC_data);
 
 
 }

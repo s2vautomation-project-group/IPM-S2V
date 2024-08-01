@@ -7,8 +7,8 @@
 
 
 #include "main.h"
-#include "Uart.h"
-#include "Gsm.h"
+#include "Application_GSM.h"
+#include "Common_Gsm.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -16,7 +16,7 @@
 
 #define max_buf_len 100
 
-char Reply[max_buf_len]={0};
+uint8_t Reply[max_buf_len]={0};
 
 int CtrlZ=26;
 char ch[1];
@@ -89,10 +89,10 @@ void UART2_Init(void)
 
 void GsmCommands(uint8_t* cmd)
 {
-	 HAL_UART_Transmit_IT(&huart2, cmd, strlen(cmd));
+	 HAL_UART_Transmit_IT(&huart2, cmd, strlen((char*)cmd));
 	 HAL_UART_Receive_IT(&huart2, Reply, max_buf_len);
 	 HAL_Delay(1000);
-	 HAL_UART_Transmit_IT(&huart1, Reply, strlen(Reply));
+	 HAL_UART_Transmit_IT(&huart1, Reply, strlen((char*)Reply));
 
 
 }
@@ -117,23 +117,12 @@ void Gsm_Init()
 	          //send data to thingspeak
 
 	                    GsmCommands((uint8_t*)"AT\r\n");
-//	                    HAL_Delay(2000);
-	                    GsmCommands((uint8_t*)"AT+CPIN?\r\n");
-//	                    HAL_Delay(2000);
+                        GsmCommands((uint8_t*)"AT+CPIN?\r\n");
 	                    GsmCommands((uint8_t*)"AT+CSQ\r\n");
-//	                    HAL_Delay(2000);
 	                    GsmCommands((uint8_t*)"AT+CGATT=1\r\n");
-//	                    HAL_Delay(2000);
 	                    GsmCommands((uint8_t*)"AT+CGDCONT=1,\"IPV6\",\"jionet\"\r\n");
-//	                    HAL_Delay(2000);
 	                    GsmCommands((uint8_t*)"AT+CGACT=1,1\r\n");
-//	                    HAL_Delay(2000);
-//	                    GsmCommands((uint8_t*)"AT+HTTPINIT\r\n");
-//	                    HAL_Delay(2000);
-//	                    GsmCommands((uint8_t*)"AT+HTTPPARA=\"URL\",\"https://api.thingspeak.com/update?api_key=KC4W64MHYV5D5F6U&field1=35\"\r\n");
-//	                    HAL_Delay(2000);
-//	                    GsmCommands((uint8_t*)"AT+HTTPACTION=0\r\n");
-//	                    HAL_Delay(2000);
+//
 
 
 }
@@ -146,11 +135,30 @@ void DataToGsm(uint8_t* rec_data)
 	GsmCommands((uint8_t*)ch);
 }
 
-//DataToCloud(RTC_date_data,RTC_time_data,ADC_data);
-void DataToCloud(uint8_t* RTC_date_data,uint8_t* RTC_time_data,uint8_t* adc_data)
+
+//void DataToCloud(uint8_t* RTC_date_data,uint8_t* RTC_time_data,uint8_t* adc_data)
+//{
+//
+//			uint8_t AT_RTCcloud_data[256];
+//
+//				//	RTCdata_to_cloud
+//
+////				 GsmCommands((uint8_t*)"AT+HTTPTERM\r\n");
+//				 GsmCommands((uint8_t*)"AT+HTTPINIT\r\n");
+//
+////					snprintf(AT_RTCcloud_data, sizeof(AT_RTCcloud_data), "AT+HTTPPARA=\"URL\",\https://api.thingspeak.com/update?api_key=Y1KDSHTWPIVWKUFJ&field%d=%s\"\r\n",field,cloud_data);
+//
+//					snprintf(AT_RTCcloud_data,sizeof(AT_RTCcloud_data), "AT+HTTPPARA=\"URL\",\https://script.google.com/macros/s/AKfycbyqqjCHXcKWwFu4uCEfpEd_f2WFQiKbyG084cx9PSkYiwnDwenu58b_lH7QTOjnUJMlww/exec?field1=%s&field2=%s&field3=%s\"\r\n",(char*)RTC_date_data,(char*)RTC_time_data,(char*)adc_data);
+//					GsmCommands((uint8_t*)AT_RTCcloud_data);
+//					 GsmCommands((uint8_t*)"AT+HTTPACTION=0\r\n");
+//
+//}
+
+
+void DataToCloud(uint8_t* RTC_data,uint8_t* adc_data)
 {
 
-			char AT_RTCcloud_data[256];
+			uint8_t AT_RTCcloud_data[256];
 
 				//	RTCdata_to_cloud
 
@@ -159,7 +167,8 @@ void DataToCloud(uint8_t* RTC_date_data,uint8_t* RTC_time_data,uint8_t* adc_data
 
 //					snprintf(AT_RTCcloud_data, sizeof(AT_RTCcloud_data), "AT+HTTPPARA=\"URL\",\https://api.thingspeak.com/update?api_key=Y1KDSHTWPIVWKUFJ&field%d=%s\"\r\n",field,cloud_data);
 
-					snprintf(AT_RTCcloud_data,sizeof(AT_RTCcloud_data), "AT+HTTPPARA=\"URL\",\https://script.google.com/macros/s/AKfycbyqqjCHXcKWwFu4uCEfpEd_f2WFQiKbyG084cx9PSkYiwnDwenu58b_lH7QTOjnUJMlww/exec?field1=%s&field2=%s&field3=%s\"\r\n",RTC_date_data,RTC_time_data,adc_data);
+				 snprintf(AT_RTCcloud_data,sizeof(AT_RTCcloud_data), "https://script.google.com/macros/s/AKfycbw1FgrrfOyLUpK_CBeDN2-HFtjkGn3GEhVS687Ts7NFyRDf-Gz4xD59qtQG0r87bcpV/exec?field1=%s&field2=%s\"\r\n",RTC_data,adc_data);
+
 					GsmCommands((uint8_t*)AT_RTCcloud_data);
 					 GsmCommands((uint8_t*)"AT+HTTPACTION=0\r\n");
 

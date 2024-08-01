@@ -5,13 +5,13 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Application_layer/Src/Gsm.c 
+../Application_layer/Src/Application_Gsm.c 
 
 OBJS += \
-./Application_layer/Src/Gsm.o 
+./Application_layer/Src/Application_Gsm.o 
 
 C_DEPS += \
-./Application_layer/Src/Gsm.d 
+./Application_layer/Src/Application_Gsm.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -21,7 +21,7 @@ Application_layer/Src/%.o Application_layer/Src/%.su Application_layer/Src/%.cyc
 clean: clean-Application_layer-2f-Src
 
 clean-Application_layer-2f-Src:
-	-$(RM) ./Application_layer/Src/Gsm.cyclo ./Application_layer/Src/Gsm.d ./Application_layer/Src/Gsm.o ./Application_layer/Src/Gsm.su
+	-$(RM) ./Application_layer/Src/Application_Gsm.cyclo ./Application_layer/Src/Application_Gsm.d ./Application_layer/Src/Application_Gsm.o ./Application_layer/Src/Application_Gsm.su
 
 .PHONY: clean-Application_layer-2f-Src
 

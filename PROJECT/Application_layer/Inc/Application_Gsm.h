@@ -9,8 +9,9 @@
 #define INC_GSM_H_
 
 #include "main.h"
-#include "Uart.h"
+#include "Common_Gsm.h"
 
-void DataTosend(int rtcdatedata,int rtctimedata,float adcdata);
+//void DataTosend(int rtcdatedata,int rtctimedata,float adcdata);
+void DataTosend(int hour,int minutes,int seconds,float adcdata);
 
 #endif /* INC_GSM_H_ */

@@ -21,8 +21,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "Uart.h"
-#include "Gsm.h"
+#include "Application_GSM.h"
+#include "Common_Gsm.h"
 
 
 /* USER CODE END Includes */
@@ -103,7 +103,8 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   Gsm_Init();
-  DataTosend(200,300,400.5);
+//  DataTosend(200,300,400.5);
+  DataTosend(2,30,20,28.5);
 
   /* USER CODE END 2 */
 

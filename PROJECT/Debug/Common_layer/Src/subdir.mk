@@ -5,13 +5,13 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Common_layer/Src/Uart.c 
+../Common_layer/Src/Common_Gsm.c 
 
 OBJS += \
-./Common_layer/Src/Uart.o 
+./Common_layer/Src/Common_Gsm.o 
 
 C_DEPS += \
-./Common_layer/Src/Uart.d 
+./Common_layer/Src/Common_Gsm.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -21,7 +21,7 @@ Common_layer/Src/%.o Common_layer/Src/%.su Common_layer/Src/%.cyclo: ../Common_l
 clean: clean-Common_layer-2f-Src
 
 clean-Common_layer-2f-Src:
-	-$(RM) ./Common_layer/Src/Uart.cyclo ./Common_layer/Src/Uart.d ./Common_layer/Src/Uart.o ./Common_layer/Src/Uart.su
+	-$(RM) ./Common_layer/Src/Common_Gsm.cyclo ./Common_layer/Src/Common_Gsm.d ./Common_layer/Src/Common_Gsm.o ./Common_layer/Src/Common_Gsm.su
 
 .PHONY: clean-Common_layer-2f-Src
 

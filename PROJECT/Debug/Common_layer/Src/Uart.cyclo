@@ -1,6 +1,0 @@
-Uart.c:28:6:UART1_Init	2
-Uart.c:59:6:UART2_Init	2
-Uart.c:90:6:GsmCommands	1
-Uart.c:102:6:Gsm_Init	1
-Uart.c:141:6:DataToGsm	1
-Uart.c:150:6:DataToCloud	1

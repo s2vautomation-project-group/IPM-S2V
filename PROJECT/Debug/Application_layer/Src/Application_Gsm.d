@@ -1,5 +1,6 @@
-Application_layer/Src/Gsm.o: ../Application_layer/Src/Gsm.c \
- ../Core/Inc/main.h ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h \
+Application_layer/Src/Application_Gsm.o: \
+ ../Application_layer/Src/Application_Gsm.c ../Core/Inc/main.h \
+ ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h \
  ../Core/Inc/stm32l4xx_hal_conf.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h \
@@ -25,8 +26,9 @@ Application_layer/Src/Gsm.o: ../Application_layer/Src/Gsm.c \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pwr_ex.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h \
- C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/PROJECT/Common_layer/Inc/Uart.h \
- C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/PROJECT/Application_layer/Inc/Gsm.h
+ C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/PROJECT/Application_layer/Inc/Application_GSM.h \
+ C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/PROJECT/Common_layer/Inc/Common_Gsm.h \
+ C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/PROJECT/Application_layer/Inc/Application_Gsm.h
 ../Core/Inc/main.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
 ../Core/Inc/stm32l4xx_hal_conf.h:
@@ -54,5 +56,6 @@ Application_layer/Src/Gsm.o: ../Application_layer/Src/Gsm.c \
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pwr_ex.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h:
-C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/PROJECT/Common_layer/Inc/Uart.h:
-C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/PROJECT/Application_layer/Inc/Gsm.h:
+C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/PROJECT/Application_layer/Inc/Application_GSM.h:
+C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/PROJECT/Common_layer/Inc/Common_Gsm.h:
+C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/PROJECT/Application_layer/Inc/Application_Gsm.h:
