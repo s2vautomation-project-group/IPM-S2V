@@ -26,7 +26,8 @@ commonlayer/Src/adc.o: ../commonlayer/Src/adc.c ../Core/Inc/main.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_flash_ramfunc.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pwr.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pwr_ex.h \
- C:/Users/Somanath/STM32CubeIDE/workspace_1.12.0/layers_adc_interrupt/commonlayer/Inc/adc.h
+ C:/Users/Somanath/STM32CubeIDE/workspace_1.12.0/layers_adc_interrupt/commonlayer/Inc/adc.h \
+ C:/Users/Somanath/STM32CubeIDE/workspace_1.12.0/layers_adc_interrupt/commonlayer/Inc/ADC.h
 ../Core/Inc/main.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
 ../Core/Inc/stm32l4xx_hal_conf.h:
@@ -56,3 +57,4 @@ commonlayer/Src/adc.o: ../commonlayer/Src/adc.c ../Core/Inc/main.h \
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pwr.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pwr_ex.h:
 C:/Users/Somanath/STM32CubeIDE/workspace_1.12.0/layers_adc_interrupt/commonlayer/Inc/adc.h:
+C:/Users/Somanath/STM32CubeIDE/workspace_1.12.0/layers_adc_interrupt/commonlayer/Inc/ADC.h:

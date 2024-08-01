@@ -21,6 +21,9 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include<stdio.h>
+#include<stdlib.h>
+#include"math.h"
 #include "adc.h"
 #include "ADC.h"
 /* USER CODE END Includes */

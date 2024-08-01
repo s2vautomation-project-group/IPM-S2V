@@ -33,7 +33,7 @@ void adc_handler(void)
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc1)
 {
-	temp=adc_value();
+	temp=(int)adc_value();
 	//HAL_ADC_Start_IT(&hadc1);
 
 }

@@ -8,6 +8,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include"adc.h"
+#include"ADC.h"
 
 extern ADC_HandleTypeDef hadc1;
 
