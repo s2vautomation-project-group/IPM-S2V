@@ -20,7 +20,7 @@ UART_HandleTypeDef huart1;
  char *token;
  int flag;
  char* pin_status;
- int data;
+ uint8_t config[4];
 
  void Configurator()
  {
@@ -42,20 +42,21 @@ UART_HandleTypeDef huart1;
 	        clear_buffer();
            }
 
-           {
+           	set_output();
             pin_status = readpin_status();
             status_transmit();
-
-           }
-           }
-
-
-	//data_receive();
-
-
+//            if(read_gpio(GPIOA, GPIO_PIN_5))
+//            {
+//            	write_gpio(GPIOB, GPIO_PIN_0, PIN_SET);
+//            }
+//            else
+//            	write_gpio(GPIOB, GPIO_PIN_0, PIN_RESET);
 
 
-void clear_buffer()
+
+  }
+
+ void clear_buffer()
 {
 	memset(buffer,0,sizeof (buffer));
 }
@@ -66,12 +67,46 @@ void clear_buffer()
 //   HAL_UART_Receive_IT(&huart1, (uint8_t *)buffer, 20);
 // }
 
+ void set_output()
+ {
+ if(config[0] == 0)
+            {
+				write_gpio(GPIOA,GPIO_PIN_5, PIN_SET);
+            }
+
+            if(config[1] == 0)
+			{
+				write_gpio(GPIOA,GPIO_PIN_6, PIN_SET);
+			}
+
+            if(config[2] == 0)
+			{
+				write_gpio(GPIOB,GPIO_PIN_0, PIN_SET);
+			}
+            if(config[3] == 0)
+			{
+				write_gpio(GPIOB,GPIO_PIN_1, PIN_SET);
+			}
+ }
+
  char* readpin_status()
  {
-//	 A[0]=read_gpio( GPIOA,GPIO_PIN_5);
-//	 A[1]=read_gpio( GPIOA,GPIO_PIN_6);
-//	 A[2]=read_gpio( GPIOB,GPIO_PIN_0);
-//	 A[3]=read_gpio( GPIOB,GPIO_PIN_1);
+	 if(config[0]==1)
+	 {
+	     A[0]=read_gpio( GPIOA,GPIO_PIN_5);
+	 }
+	 if(config[1]==1)
+	 {
+		 A[1]=read_gpio( GPIOA,GPIO_PIN_6);
+	 }
+	 if(config[2]==1)
+	 {
+	    A[2]=read_gpio( GPIOB,GPIO_PIN_0);
+	 }
+	if(config[3]==1)
+	{
+	   A[3]=read_gpio( GPIOB,GPIO_PIN_1);
+    }
 	 return A;
  }
 
@@ -125,119 +160,123 @@ void pin_config()
 			     switch(switch_val)
 			     {
 
-			     case 1: {
-			    	 if(strcmp(arr2,"OUTPUT")==0)
+			     case 1: //{
+			    	 	if(strcmp(arr2,"OUTPUT")==0)
 						{
 			              user_GPIO_Init(GPIOA,GPIO_PIN_5,OUTPUT);
-						  write_gpio(GPIOA,GPIO_PIN_5, PIN_SET);
-						  A[0] = 0;
+//						  write_gpio(GPIOA,GPIO_PIN_5, PIN_SET);
+					      config[0] = 0;
 						}
 
 			              else if(strcmp(arr2,"INPUT")==0)
 					    {
 						   user_GPIO_Init(GPIOA,GPIO_PIN_5,INPUT);
-						   A[0]=read_gpio( GPIOA,GPIO_PIN_5);
-							{
-							   if(A[0] == 1)
-								{
-								   user_output_GPIO_Init();
-								   HAL_GPIO_WritePin(GPIOA,GPIO_PIN_3,PIN_SET);//
-								}
-
-									else
-								{
-									HAL_GPIO_WritePin(GPIOA,GPIO_PIN_3,PIN_RESET);
-								}
-							}
+						   //A[0]=read_gpio( GPIOA,GPIO_PIN_5);
+						   config[0] = 1;
+//							{
+//							   if(A[0] == 1)
+//								{
+//								   user_output_GPIO_Init();
+//								   HAL_GPIO_WritePin(GPIOA,GPIO_PIN_3,PIN_SET);//
+//								}
+//
+//									else
+//								{
+//									HAL_GPIO_WritePin(GPIOA,GPIO_PIN_3,PIN_RESET);
+//								}
+//							}
 					    }
-			     }
+			     //}
 			     break;
 
-			   case 2: {
-				    if(strcmp(arr2,"OUTPUT")==0)
+			   case 2: //{
+				    	if(strcmp(arr2,"OUTPUT")==0)
 			    		{
 			    	      user_GPIO_Init(GPIOA,GPIO_PIN_6,OUTPUT);
-			    		  write_gpio(GPIOA,GPIO_PIN_6, PIN_SET);
-			    		  A[1]=0;
+//			    		 write_gpio(GPIOA,GPIO_PIN_6, PIN_SET);
+			    	      config[1]=0;
 			    		}
 
 			    	     else if(strcmp(arr2,"INPUT")==0)
 			    		{
 			    		  user_GPIO_Init(GPIOA,GPIO_PIN_6,INPUT);
-			    		  A[1]=read_gpio( GPIOA,GPIO_PIN_6);
-			    		{
+			    		  //A[1]=read_gpio( GPIOA,GPIO_PIN_6);
+			    		  config[1]=1;
+//			    		{
 
-			    		 if(A[1] == 1)
-			    		{
-			    		  user_output_GPIO_Init();
-			    		  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_3,PIN_SET);
+//			    		 if(A[1] == 1)
+//			    		{
+//			    		  user_output_GPIO_Init();
+//			    		  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_3,PIN_SET);
+//			    		}
+//
+//			    		 else
+//			    	   {
+//			    		  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_3,PIN_RESET);
+//			    	   }
+//			    	   }
 			    		}
+			   //}
+				    	break;
 
-			    		 else
-			    	   {
-			    		  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_3,PIN_RESET);
-			    	   }
-			    	   }
-			    	   }
-			   }
-			   break;
-
-			     case 3: {
-			    	 if(strcmp(arr2,"OUTPUT")==0)
+			     case 3: //{
+			    	 	if(strcmp(arr2,"OUTPUT")==0)
 			     		{
 			     		  user_GPIO_Init(GPIOB,GPIO_PIN_0,OUTPUT);
-			     		  write_gpio(GPIOB,GPIO_PIN_0, PIN_SET);
-			     		  A[2]=0;
+//			     		  write_gpio(GPIOB,GPIO_PIN_0, PIN_SET);
+			     		  config[2]=0;
 			     	    }
 
 			     		 else if(strcmp(arr2,"INPUT")==0)
 			     		{
 			     		  user_GPIO_Init(GPIOB,GPIO_PIN_0,INPUT);
-			     		 A[2]=read_gpio( GPIOB,GPIO_PIN_0);
+			     		// A[2]=read_gpio( GPIOB,GPIO_PIN_0);
+			     		 config[2]=1;
 
-			     		{
-			     		 if(A[2] == 1)
-			     		{
-			     		  user_output_GPIO_Init();
-			     		  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_3,PIN_SET);
+//			     		{
+//			     		 if(A[2] == 1)
+//			     		{
+//			     		  user_output_GPIO_Init();
+//			     		  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_3,PIN_SET);
+//			     		}
+//
+//			     		  else
+//			     	    {
+//			     		  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_3,PIN_RESET);
+//			     		}
 			     		}
-
-			     		  else
-			     	    {
-			     		  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_3,PIN_RESET);
-			     		}
-			     		}
-			     		}
-			     }
+//			     		}
+//			     }
 			     break;
 
-			     case 4: {
-			    	 if(strcmp(arr2,"OUTPUT")==0)
+			     case 4: //{
+			    	 	 if(strcmp(arr2,"OUTPUT")==0)
 			    		{
 			    	      user_GPIO_Init(GPIOB,GPIO_PIN_1,OUTPUT);
-			    		  write_gpio(GPIOB,GPIO_PIN_1, PIN_SET);
-			    		  A[3]=0;
+//			    		  write_gpio(GPIOB,GPIO_PIN_1, PIN_SET);
+			    		  config[3]=0;
 			    	    }
 
 			    		  else if(strcmp(arr2,"INPUT")==0)
 			    	    {
 			              user_GPIO_Init(GPIOB,GPIO_PIN_1,INPUT);
-			              A[3]=read_gpio( GPIOB,GPIO_PIN_1);
-			    		{
-							 if(A[3] == 1)
-							{
-							  user_output_GPIO_Init();
-							  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_3,PIN_SET);
-							}
-
-							 else
-							{
-							  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_3,PIN_RESET);
-							}
-			    		}
+//			              A[3]=read_gpio( GPIOB,GPIO_PIN_1);
+			              config[3]=1;
+//			    		{
+//							 if(A[3] == 1)
+//							{
+//							  user_output_GPIO_Init();
+//							  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_3,PIN_SET);
+//							}
+//
+//							 else
+//							{
+//							  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_3,PIN_RESET);
+//							}
+//			    		}
 			    	    }
 
-			    	}
+//			    	}
 			     break;
 			     }
 

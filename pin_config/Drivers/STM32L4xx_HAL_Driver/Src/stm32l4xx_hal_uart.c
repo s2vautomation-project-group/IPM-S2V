@@ -164,7 +164,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32l4xx_hal.h"
-//#include "Cqueue.h"
+
 /** @addtogroup STM32L4xx_HAL_Driver
   * @{
   */
@@ -3555,9 +3555,7 @@ HAL_StatusTypeDef UART_WaitOnFlagUntilTimeout(UART_HandleTypeDef *huart, uint32_
 
       if (READ_BIT(huart->Instance->CR1, USART_CR1_RE) != 0U)
       {
-
-
-    	  if (__HAL_UART_GET_FLAG(huart, UART_FLAG_RTOF) == SET)
+        if (__HAL_UART_GET_FLAG(huart, UART_FLAG_RTOF) == SET)
         {
           /* Clear Receiver Timeout flag*/
           __HAL_UART_CLEAR_FLAG(huart, UART_CLEAR_RTOF);

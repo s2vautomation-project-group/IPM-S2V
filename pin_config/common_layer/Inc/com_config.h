@@ -10,7 +10,6 @@
 #ifndef COMMON_INC_COM_H_
 #define COMMON_INC_COM_H_
 
-extern volatile uint8_t data_received_flag;
 
 typedef enum
 {
@@ -24,7 +23,7 @@ typedef enum
   PIN_SET
 } myPinState;
 
-void SystemClock_Config(void);
+void user_SystemClock_Config(void);
 void user_output_GPIO_Init(void);
 void user_GPIO_Init(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin,mode PIN_mode);
 void gpio_output(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin,mode PIN_mode);

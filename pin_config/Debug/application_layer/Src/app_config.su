@@ -1,5 +1,6 @@
 ../application_layer/Src/app_config.c:25:7:Configurator	8	static
-../application_layer/Src/app_config.c:58:6:clear_buffer	8	static
-../application_layer/Src/app_config.c:69:8:readpin_status	4	static
-../application_layer/Src/app_config.c:79:6:extract_data	8	static
-../application_layer/Src/app_config.c:104:6:pin_config	8	static
+../application_layer/Src/app_config.c:59:7:clear_buffer	8	static
+../application_layer/Src/app_config.c:70:7:set_output	8	static
+../application_layer/Src/app_config.c:92:8:readpin_status	8	static
+../application_layer/Src/app_config.c:114:6:extract_data	8	static
+../application_layer/Src/app_config.c:139:6:pin_config	8	static
