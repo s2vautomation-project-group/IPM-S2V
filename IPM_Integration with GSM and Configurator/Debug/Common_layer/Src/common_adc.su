@@ -1,0 +1,3 @@
+../Common_layer/Src/common_adc.c:71:7:USER_ADC1_Init	32	static
+../Common_layer/Src/common_adc.c:124:6:USER_GPIO_Init	16	static
+../Common_layer/Src/common_adc.c:137:5:adc_value	8	static

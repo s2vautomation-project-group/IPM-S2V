@@ -1,0 +1,6 @@
+application_RTC.c:27:9:decToBcd	1
+application_RTC.c:33:5:bcdToDec	1
+application_RTC.c:51:6:Set_Time	1
+application_RTC.c:67:6:Get_Time	1
+application_RTC.c:92:6:app	1
+application_RTC.c:171:16:OLED_data	1
