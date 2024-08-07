@@ -21,21 +21,24 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "Application_GSM.h"
-#include "Common_Gsm.h"
 
+#include "application.h"
+#include "common.h"
+#include "data.h"
+#include "ctype.h"
 
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 
-
-
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+
+
+ struct data d={"2:30:27","channel1","channel2","channel3","channel4","Digital1","Digital2","Digital3","Digital4"};
 
 /* USER CODE END PD */
 
@@ -45,7 +48,6 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-//UART_HandleTypeDef huart1;
 //UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
@@ -56,10 +58,7 @@
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 //static void MX_USART2_UART_Init(void);
-//static void MX_USART1_UART_Init(void);
 /* USER CODE BEGIN PFP */
-
-
 
 /* USER CODE END PFP */
 
@@ -97,24 +96,24 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
 //  MX_USART2_UART_Init();
-//  MX_USART1_UART_Init();
-  UART1_Init();
-  UART2_Init();
   /* USER CODE BEGIN 2 */
-
-  Gsm_Init();
-//  DataTosend(200,300,400.5);
-  DataTosend(2,30,20,28.5);
-
-  /* USER CODE END 2 */
+  UART2_Init();
+//  Gsm_Init();
+    /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+
+//  DataTosend(d.time,d.CH1,d.CH2,d.CH3,d.CH4,d.D1,d.D2,d.D3,d.D4);
+  DataToGsm(&d);
+ DataToUart(&d);
+
   while (1)
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+
   }
   /* USER CODE END 3 */
 }
@@ -178,41 +177,6 @@ void SystemClock_Config(void)
   */
   HAL_RCCEx_EnableMSIPLLMode();
 }
-
-/**
-  * @brief USART1 Initialization Function
-  * @param None
-  * @retval None
-  */
-//static void MX_USART1_UART_Init(void)
-//{
-//
-//  /* USER CODE BEGIN USART1_Init 0 */
-//
-//  /* USER CODE END USART1_Init 0 */
-//
-//  /* USER CODE BEGIN USART1_Init 1 */
-//
-//  /* USER CODE END USART1_Init 1 */
-//  huart1.Instance = USART1;
-//  huart1.Init.BaudRate = 115200;
-//  huart1.Init.WordLength = UART_WORDLENGTH_8B;
-//  huart1.Init.StopBits = UART_STOPBITS_1;
-//  huart1.Init.Parity = UART_PARITY_NONE;
-//  huart1.Init.Mode = UART_MODE_TX_RX;
-//  huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
-//  huart1.Init.OverSampling = UART_OVERSAMPLING_16;
-//  huart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
-//  huart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
-//  if (HAL_UART_Init(&huart1) != HAL_OK)
-//  {
-//    Error_Handler();
-//  }
-//  /* USER CODE BEGIN USART1_Init 2 */
-//
-//  /* USER CODE END USART1_Init 2 */
-//
-//}
 
 /**
   * @brief USART2 Initialization Function
