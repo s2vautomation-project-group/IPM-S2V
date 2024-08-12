@@ -15,9 +15,8 @@ void UART1_Init(void);
 void UART2_Init(void);
 void GsmCommands(uint8_t* cmd);
 void Gsm_Init();
-void DataToGsm(uint8_t* rec_data);
 void DataToCloud(uint8_t* Time,uint8_t* Ch1,uint8_t* Ch2,uint8_t* Ch3,uint8_t* Ch4,uint8_t* D1,uint8_t* D2,uint8_t* D3,uint8_t* D4);
-
+void DataToUart(struct data *d);
 char* url_encode(const char* str);
 
 #endif /* INC_COMMON_GSM_H_ */

@@ -16,7 +16,7 @@
 #define max_buf_len 100
 
 uint8_t Reply[max_buf_len]={0};
-
+uint8_t buf[50];
 
 UART_HandleTypeDef huart2;
 
@@ -50,6 +50,13 @@ void UART2_Init(void)
 
 }
 
+void DataToUart(struct data *d)
+{
+	sprintf(buf,"%s,%s,%s,%s,%s,%s,%s,%s,%s\r\n",d->time,d->CH1,d->CH2,d->CH3,d->CH4,d->D1,d->D2,d->D3,d->D4);
+	HAL_UART_Transmit(&huart2, (uint8_t*)buf, strlen(buf), HAL_MAX_DELAY);
+	HAL_Delay(500);
+
+}
 
 void GsmCommands(uint8_t* cmd)
 {

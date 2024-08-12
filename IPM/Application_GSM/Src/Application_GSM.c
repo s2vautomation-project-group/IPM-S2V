@@ -12,10 +12,23 @@
 #include <string.h>
 #include <stdlib.h>
 
-void DataTosend(struct data *d)
-{
+int count=0;
 
-	DataToCloud(d->time,d->CH1,d->CH2,d->CH3,d->CH4,d->D1,d->D2,d->D3,d->D4);
+void DataToGsm(struct data *d1)
+{
+	uint8_t seconds=d1->sec;
+	if(seconds==59)
+	{
+		count=count+1;
+	}
+
+
+	if(count==3)
+	{
+		DataToCloud(d1->time,d1->CH1,d1->CH2,d1->CH3,d1->CH4,d1->D1,d1->D2,d1->D3,d1->D4);
+		count=0;
+	}
 
 
 }
+

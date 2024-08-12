@@ -58,6 +58,7 @@ struct data
 	 char D2[10];
 	 char D3[10];
 	 char D4[10];
+	 uint8_t sec;
 
  };
 

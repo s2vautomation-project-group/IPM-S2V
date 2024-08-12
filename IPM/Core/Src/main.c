@@ -47,7 +47,7 @@
 //UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
-struct data d={"2:30:27","channel1","channel2","channel3","channel4","Digital1","Digital2","Digital3","Digital4"};
+struct data d={"2:30:27","channel1","channel2","channel3","channel4","Digital1","Digital2","Digital3","Digital4",00};
 
 
 /* USER CODE END PV */
@@ -102,7 +102,8 @@ int main(void)
 	/* Infinite loop */
 	/* USER CODE BEGIN WHILE */
 
-	DataTosend(&d);
+	DataToGsm(&d);
+	DataToUart(&d);
 	while (1)
 	{
 		/* USER CODE END WHILE */

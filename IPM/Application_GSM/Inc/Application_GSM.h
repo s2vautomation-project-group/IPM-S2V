@@ -11,7 +11,7 @@
 #include "main.h"
 #include "Common_Gsm.h"
 
-void DataTosend(struct data *d);
+void DataToGsm(struct data *d1);
 
 
 #endif /* INC_APPLICATION_GSM_H_ */
