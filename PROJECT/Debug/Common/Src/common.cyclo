@@ -1,0 +1,6 @@
+common.c:28:6:UART2_Init	2
+common.c:64:6:DataToUart	1
+common.c:76:6:GsmCommands	1
+common.c:86:6:Gsm_Init	1
+common.c:102:6:DataToCloud	1
+common.c:144:7:url_encode	7
