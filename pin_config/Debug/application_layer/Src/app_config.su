@@ -1,6 +1,9 @@
 ../application_layer/Src/app_config.c:25:7:Configurator	8	static
-../application_layer/Src/app_config.c:59:7:clear_buffer	8	static
-../application_layer/Src/app_config.c:70:7:set_output	8	static
-../application_layer/Src/app_config.c:92:8:readpin_status	8	static
-../application_layer/Src/app_config.c:114:6:extract_data	8	static
-../application_layer/Src/app_config.c:139:6:pin_config	8	static
+../application_layer/Src/app_config.c:53:7:clear_buffer	8	static
+../application_layer/Src/app_config.c:64:7:set_output	8	static
+../application_layer/Src/app_config.c:87:7:reset_output	8	static
+../application_layer/Src/app_config.c:110:11:read_pinstatus	8	static
+../application_layer/Src/app_config.c:132:6:extract_data	8	static
+../application_layer/Src/app_config.c:156:6:DataTOgsm	16	static
+../application_layer/Src/app_config.c:161:6:gpiostatus	16	static
+../application_layer/Src/app_config.c:170:6:pin_config	8	static

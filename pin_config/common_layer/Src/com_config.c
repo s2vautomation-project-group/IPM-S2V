@@ -8,6 +8,8 @@
 #include "com_config.h"
 #include "main.h"
 #include <string.h>
+
+
 //#include "Cqueue.h"
 
 
@@ -24,10 +26,10 @@
 
 
 
-extern  char  buffer[20];
+extern  char  tx_data[15];
 extern UART_HandleTypeDef huart1;
 GPIO_InitTypeDef GPIO_InitStruct = {0};
-extern char A[4];
+uint8_t gpio[4];
 
 void user_SystemClock_Config(void)
 
@@ -115,7 +117,7 @@ void user_SystemClock_Config(void)
 
  void user_GPIO_Init(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin,mode PIN_mode)
  {
-   GPIO_InitTypeDef GPIO_InitStruct = {0};
+   //GPIO_InitTypeDef GPIO_InitStruct = {0};
  /* USER CODE BEGIN MX_GPIO_Init_1 */
  /* USER CODE END MX_GPIO_Init_1 */
 
@@ -137,12 +139,12 @@ void user_SystemClock_Config(void)
      }
 
      /*Configure GPIO pin : VCP_RX_Pin */
-   GPIO_InitStruct.Pin = VCP_RX_Pin;
+  // GPIO_InitStruct.Pin = VCP_RX_Pin;
    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
    GPIO_InitStruct.Pull = GPIO_NOPULL;
    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
    GPIO_InitStruct.Alternate = GPIO_AF3_USART2;
-   HAL_GPIO_Init(VCP_RX_GPIO_Port, &GPIO_InitStruct);
+   //HAL_GPIO_Init(VCP_RX_GPIO_Port, &GPIO_InitStruct);
 
  /* USER CODE BEGIN MX_GPIO_Init_2 */
  /* USER CODE END MX_GPIO_Init_2 */
@@ -171,53 +173,24 @@ void user_SystemClock_Config(void)
      HAL_GPIO_Init(GPIOx, &GPIO_InitStruct);
  }
 
- void user_output_GPIO_Init(void)
-  {
-    GPIO_InitTypeDef GPIO_InitStruct = {0};
-  /* USER CODE BEGIN MX_GPIO_Init_1 */
-  /* USER CODE END MX_GPIO_Init_1 */
-
-    /* GPIO Ports Clock Enable */
-    __HAL_RCC_GPIOC_CLK_ENABLE();
-    __HAL_RCC_GPIOA_CLK_ENABLE();
-
-    /*Configure GPIO pin Output Level */
-         HAL_GPIO_WritePin(GPIOA, GPIO_PIN_3|GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6
-                                 |GPIO_PIN_7, GPIO_PIN_RESET);
-
-
-         /*Configure GPIO pins : PA3 PA4 PA5 PA6
-                                  PA7 */
-         GPIO_InitStruct.Pin = GPIO_PIN_3|GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6
-                                 |GPIO_PIN_7;
-         GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-         GPIO_InitStruct.Pull = GPIO_NOPULL;
-         GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-         HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
 
 
-    /*Configure GPIO pin : VCP_RX_Pin */
-    GPIO_InitStruct.Pin = VCP_RX_Pin;
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-    GPIO_InitStruct.Alternate = GPIO_AF3_USART2;
-    HAL_GPIO_Init(VCP_RX_GPIO_Port, &GPIO_InitStruct);
-
-  /* USER CODE BEGIN MX_GPIO_Init_2 */
-  /* USER CODE END MX_GPIO_Init_2 */
-  }
-
-
- void data_receive()
+void data_receive()
  {
-	 HAL_UART_Receive(&huart1,(uint8_t *)buffer,20,1000);
+	 if (HAL_UART_Receive(&huart1,(uint8_t *)tx_data,20,1000) == HAL_ERROR)
+	 {
+			 Error_Handler();
+	 }
  }
 
- void status_transmit()
+
+void status_transmit()
  {
-	 HAL_UART_Transmit(&huart1, (uint8_t *)A, 4,1000);
+	if ((HAL_UART_Transmit(&huart1, (uint8_t *)gpio, 4,1000)) == HAL_ERROR)
+	 {
+		 Error_Handler();
+	 }
  }
 
  myPinState read_gpio(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
@@ -226,10 +199,10 @@ void user_SystemClock_Config(void)
 
  }
 
- void write_gpio(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin, myPinState PinState)
+ myPinState write_gpio(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin, myPinState PinState)
  {
     HAL_GPIO_WritePin(GPIOx, GPIO_Pin,PinState);
-
+    return PinState;
  }
 
 

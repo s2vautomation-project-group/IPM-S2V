@@ -1,6 +1,9 @@
 app_config.c:25:7:Configurator	3
-app_config.c:59:7:clear_buffer	1
-app_config.c:70:7:set_output	5
-app_config.c:92:8:readpin_status	5
-app_config.c:114:6:extract_data	3
-app_config.c:139:6:pin_config	17
+app_config.c:53:7:clear_buffer	1
+app_config.c:64:7:set_output	5
+app_config.c:87:7:reset_output	5
+app_config.c:110:11:read_pinstatus	5
+app_config.c:132:6:extract_data	3
+app_config.c:156:6:DataTOgsm	1
+app_config.c:161:6:gpiostatus	1
+app_config.c:170:6:pin_config	21

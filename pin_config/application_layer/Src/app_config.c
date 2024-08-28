@@ -9,24 +9,24 @@
 #include "app_config.h"
 #include <string.h>
 #include "main.h"
-
-
+#include <stdlib.h>
 int switch_val=0;
-char buffer[11];
+char tx_data[15];
 UART_HandleTypeDef huart1;
- char arr1[10];
- char arr2[10];
- char A[4];
- char *token;
- int flag;
- char* pin_status;
- uint8_t config[4];
+char arr1[10];
+char arr2[10];
+char *token;
+int flag;
+uint8_t* pin_status;
+char config[4];
+uint8_t s[4];
+struct status d;
 
  void Configurator()
  {
 	 data_receive();
 
-		  if (buffer[0] != '\0')
+		  if (tx_data[0] != '\0')
 		   {
 		     flag = 1; // Set flag to indicate data has been received
 		   }
@@ -41,24 +41,18 @@ UART_HandleTypeDef huart1;
 	        pin_config();
 	        clear_buffer();
            }
-
+            reset_output();
            	set_output();
-            pin_status = readpin_status();
+            pin_status = read_pinstatus();
             status_transmit();
-//            if(read_gpio(GPIOA, GPIO_PIN_5))
-//            {
-//            	write_gpio(GPIOB, GPIO_PIN_0, PIN_SET);
-//            }
-//            else
-//            	write_gpio(GPIOB, GPIO_PIN_0, PIN_RESET);
+            DataTOgsm(d);
 
 
-
-  }
+ }
 
  void clear_buffer()
 {
-	memset(buffer,0,sizeof (buffer));
+	memset(tx_data,0,sizeof (tx_data));
 }
 
 //void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
@@ -69,51 +63,75 @@ UART_HandleTypeDef huart1;
 
  void set_output()
  {
- if(config[0] == 0)
-            {
-				write_gpio(GPIOA,GPIO_PIN_5, PIN_SET);
-            }
+	 if(config[0] == 0)
+	{
+		 d.gpio[0] = write_gpio(GPIOB,GPIO_PIN_0, PIN_SET);
+	}
 
-            if(config[1] == 0)
-			{
-				write_gpio(GPIOA,GPIO_PIN_6, PIN_SET);
-			}
+	if(config[1] == 0)
+	{
+		d.gpio[1] = write_gpio(GPIOB,GPIO_PIN_1, PIN_SET);
+	}
 
-            if(config[2] == 0)
-			{
-				write_gpio(GPIOB,GPIO_PIN_0, PIN_SET);
-			}
-            if(config[3] == 0)
-			{
-				write_gpio(GPIOB,GPIO_PIN_1, PIN_SET);
-			}
+	if(config[2] == 0)
+	{
+		d.gpio[2] = write_gpio(GPIOB,GPIO_PIN_4, PIN_SET);
+	}
+
+	if(config[3] == 0)
+	{
+		d.gpio[3] = write_gpio(GPIOB,GPIO_PIN_5, PIN_SET);
+	}
  }
 
- char* readpin_status()
+ void reset_output()
+  {
+ 	 if(config[0] == 0)
+ 	{
+ 		d.gpio[0] = write_gpio(GPIOB,GPIO_PIN_0, PIN_RESET);
+ 	}
+
+ 	if(config[1] == 0)
+ 	{
+ 		d.gpio[1]=write_gpio(GPIOB,GPIO_PIN_1, PIN_RESET);
+ 	}
+
+ 	if(config[2] == 0)
+ 	{
+ 		d.gpio[2] = write_gpio(GPIOB,GPIO_PIN_4, PIN_RESET);
+ 	}
+
+ 	if(config[3] == 0)
+ 	{
+ 		d.gpio[3] = write_gpio(GPIOB,GPIO_PIN_5, PIN_RESET);
+ 	}
+  }
+
+ uint8_t* read_pinstatus()
  {
 	 if(config[0]==1)
 	 {
-	     A[0]=read_gpio( GPIOA,GPIO_PIN_5);
+	     d.gpio[0]=read_gpio( GPIOB,GPIO_PIN_0);
 	 }
 	 if(config[1]==1)
 	 {
-		 A[1]=read_gpio( GPIOA,GPIO_PIN_6);
+		 d.gpio[1]=read_gpio( GPIOB,GPIO_PIN_1);
 	 }
 	 if(config[2]==1)
 	 {
-	    A[2]=read_gpio( GPIOB,GPIO_PIN_0);
+	    d.gpio[2]=read_gpio( GPIOB,GPIO_PIN_4);
 	 }
 	if(config[3]==1)
 	{
-	   A[3]=read_gpio( GPIOB,GPIO_PIN_1);
+	   d.gpio[3]=read_gpio( GPIOB,GPIO_PIN_5);
     }
-	 return A;
+	 return d.gpio;
  }
 
 
 void extract_data()
 {
-	token = strtok(buffer, ",");
+	token = strtok(tx_data, ",");
 
 
 		     if (token != NULL)
@@ -135,152 +153,165 @@ void extract_data()
 
 }
 
+void DataTOgsm(struct status d)
+{
+	gpiostatus(d);
+}
+
+void gpiostatus(struct status d)
+{
+	 s[0]=d.gpio[0];
+	 s[1]=d.gpio[1];
+	 s[2]=d.gpio[2];
+	 s[3]=d.gpio[3];
+	 s[4]=d.SCANTIME;
+}
 
 void pin_config()
 {
 
-	            if(strcmp(arr1,"A5")==0)
+	            if(strcmp(arr1,"B0")==0)
 			     {
 			       switch_val=1;
 			     }
-	            else if(strcmp(arr1,"A6")==0)
+
+	            else if(strcmp(arr1,"B1")==0)
 				 {
 				   switch_val=2;
 				 }
-	            else if(strcmp(arr1,"B0")==0)
+
+	            else if(strcmp(arr1,"B4")==0)
 	           	 {
 	           		switch_val=3;
 	           	 }
-	            else if(strcmp(arr1,"B1")==0)
+
+	            else if(strcmp(arr1,"B5")==0)
+                 {
+				    switch_val=4;
+				 }
+
+	            else if(strcmp(arr1,"ADC1")==0)
+				 {
+					switch_val=5;
+				 }
+
+	            else if(strcmp(arr1,"RTC")==0)
 	             {
-	            	switch_val=4;
+	            	switch_val=6;
 	             }
+
+	            else if(strcmp(arr1,"SCANTIME")==0)
+				 {
+					switch_val=7;
+				 }
 
 
 			     switch(switch_val)
 			     {
 
-			     case 1: //{
+			     case 1:
 			    	 	if(strcmp(arr2,"OUTPUT")==0)
 						{
-			              user_GPIO_Init(GPIOA,GPIO_PIN_5,OUTPUT);
-//						  write_gpio(GPIOA,GPIO_PIN_5, PIN_SET);
+			              user_GPIO_Init(GPIOB,GPIO_PIN_0,OUTPUT);
 					      config[0] = 0;
 						}
 
 			              else if(strcmp(arr2,"INPUT")==0)
 					    {
-						   user_GPIO_Init(GPIOA,GPIO_PIN_5,INPUT);
-						   //A[0]=read_gpio( GPIOA,GPIO_PIN_5);
+						   user_GPIO_Init(GPIOB,GPIO_PIN_0,INPUT);
 						   config[0] = 1;
-//							{
-//							   if(A[0] == 1)
-//								{
-//								   user_output_GPIO_Init();
-//								   HAL_GPIO_WritePin(GPIOA,GPIO_PIN_3,PIN_SET);//
-//								}
-//
-//									else
-//								{
-//									HAL_GPIO_WritePin(GPIOA,GPIO_PIN_3,PIN_RESET);
-//								}
-//							}
 					    }
-			     //}
 			     break;
 
-			   case 2: //{
+			   case 2:
 				    	if(strcmp(arr2,"OUTPUT")==0)
 			    		{
-			    	      user_GPIO_Init(GPIOA,GPIO_PIN_6,OUTPUT);
-//			    		 write_gpio(GPIOA,GPIO_PIN_6, PIN_SET);
+			    	      user_GPIO_Init(GPIOB,GPIO_PIN_1,OUTPUT);
 			    	      config[1]=0;
 			    		}
 
 			    	     else if(strcmp(arr2,"INPUT")==0)
 			    		{
-			    		  user_GPIO_Init(GPIOA,GPIO_PIN_6,INPUT);
-			    		  //A[1]=read_gpio( GPIOA,GPIO_PIN_6);
+			    		  user_GPIO_Init(GPIOB,GPIO_PIN_1,INPUT);
 			    		  config[1]=1;
-//			    		{
-
-//			    		 if(A[1] == 1)
-//			    		{
-//			    		  user_output_GPIO_Init();
-//			    		  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_3,PIN_SET);
-//			    		}
-//
-//			    		 else
-//			    	   {
-//			    		  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_3,PIN_RESET);
-//			    	   }
-//			    	   }
 			    		}
-			   //}
-				    	break;
+	    	    break;
 
-			     case 3: //{
+			     case 3:
 			    	 	if(strcmp(arr2,"OUTPUT")==0)
 			     		{
-			     		  user_GPIO_Init(GPIOB,GPIO_PIN_0,OUTPUT);
-//			     		  write_gpio(GPIOB,GPIO_PIN_0, PIN_SET);
+			     		  user_GPIO_Init(GPIOB,GPIO_PIN_4,OUTPUT);
 			     		  config[2]=0;
 			     	    }
 
 			     		 else if(strcmp(arr2,"INPUT")==0)
 			     		{
-			     		  user_GPIO_Init(GPIOB,GPIO_PIN_0,INPUT);
-			     		// A[2]=read_gpio( GPIOB,GPIO_PIN_0);
-			     		 config[2]=1;
-
-//			     		{
-//			     		 if(A[2] == 1)
-//			     		{
-//			     		  user_output_GPIO_Init();
-//			     		  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_3,PIN_SET);
-//			     		}
-//
-//			     		  else
-//			     	    {
-//			     		  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_3,PIN_RESET);
-//			     		}
+			     		  user_GPIO_Init(GPIOB,GPIO_PIN_4,INPUT);
+			     		  config[2]=1;
 			     		}
-//			     		}
-//			     }
+
 			     break;
 
-			     case 4: //{
+			     case 4:
 			    	 	 if(strcmp(arr2,"OUTPUT")==0)
 			    		{
-			    	      user_GPIO_Init(GPIOB,GPIO_PIN_1,OUTPUT);
-//			    		  write_gpio(GPIOB,GPIO_PIN_1, PIN_SET);
+			    	      user_GPIO_Init(GPIOB,GPIO_PIN_5,OUTPUT);
 			    		  config[3]=0;
 			    	    }
 
 			    		  else if(strcmp(arr2,"INPUT")==0)
 			    	    {
-			              user_GPIO_Init(GPIOB,GPIO_PIN_1,INPUT);
-//			              A[3]=read_gpio( GPIOB,GPIO_PIN_1);
+			              user_GPIO_Init(GPIOB,GPIO_PIN_5,INPUT);
 			              config[3]=1;
-//			    		{
-//							 if(A[3] == 1)
-//							{
-//							  user_output_GPIO_Init();
-//							  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_3,PIN_SET);
-//							}
-//
-//							 else
-//							{
-//							  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_3,PIN_RESET);
-//							}
-//			    		}
 			    	    }
-
-//			    	}
 			     break;
-			     }
 
+//			     case 5:
+//						 if(strcmp(arr2,"CH1")==0)
+//						{
+//						  USER_ADC1_Init();
+//						}
+//
+//						  else if(strcmp(arr2,"CH2")==0)
+//						{
+//
+//						}
+//				 break;
+
+//			     case 6:
+
+//				  token = strtok(arr2, ":");
+//
+//				 // Get the first token and convert to integer
+//				 if (token != NULL)
+//				 {
+//					 time.hour = atoi(token);
+//					 token = strtok(NULL, ":");
+//				 }
+//
+//				 // Get the second token and convert to integer
+//				 if (token != NULL)
+//				 {
+//					 time.minutes = atoi(token);
+//					 token = strtok(NULL, ":");
+//				 }
+//
+//				 // Get the third token and convert to integer
+//				 if (token != NULL)
+//				 {
+//
+//					 time.seconds = atoi(token);
+//				 }
+//				 Set_Time(time);
+//
+//			 break;
+			     case 7:
+			    	 d.SCANTIME = (uint8_t)atoi(arr2);
+			    	 DataTOgsm(d);
+			     }
 }
+
+
 
 
 
