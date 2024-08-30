@@ -1,0 +1,7 @@
+../Application_layer/Src/app_config.c:28:7:Configurator	8	static
+../Application_layer/Src/app_config.c:58:7:clear_buffer	8	static
+../Application_layer/Src/app_config.c:69:7:set_output	8	static
+../Application_layer/Src/app_config.c:93:7:reset_output	8	static
+../Application_layer/Src/app_config.c:116:11:read_pinstatus	8	static
+../Application_layer/Src/app_config.c:138:6:extract_data	8	static
+../Application_layer/Src/app_config.c:176:6:pin_config	8	static

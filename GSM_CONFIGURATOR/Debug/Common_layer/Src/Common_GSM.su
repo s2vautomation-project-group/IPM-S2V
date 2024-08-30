@@ -1,0 +1,6 @@
+../Common_layer/Src/Common_GSM.c:28:6:UART2_Init	8	static
+../Common_layer/Src/Common_GSM.c:64:6:DataToUart	80	static
+../Common_layer/Src/Common_GSM.c:78:6:GsmCommands	16	static
+../Common_layer/Src/Common_GSM.c:88:6:Gsm_Init	8	static
+../Common_layer/Src/Common_GSM.c:104:6:DataToCloud	600	static
+../Common_layer/Src/Common_GSM.c:146:7:url_encode	32	static
