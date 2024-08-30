@@ -1,9 +1,0 @@
-../common_layer/Src/com_adc.c:14:6:USER_SystemClock_Config	96	static
-../common_layer/Src/com_adc.c:70:6:USER_ADC1_Init	8	static
-../common_layer/Src/com_adc.c:133:6:USER_GPIO_Init	16	static
-../common_layer/Src/com_adc.c:145:6:ADC_select_CH5	32	static
-../common_layer/Src/com_adc.c:160:6:ADC_select_CH6	32	static
-../common_layer/Src/com_adc.c:175:6:adc_start	8	static
-../common_layer/Src/com_adc.c:180:6:adc_conversion	8	static
-../common_layer/Src/com_adc.c:186:10:adc_value	8	static
-../common_layer/Src/com_adc.c:191:6:adc_stop	8	static

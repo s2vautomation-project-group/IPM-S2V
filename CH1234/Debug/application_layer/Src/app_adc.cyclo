@@ -1,0 +1,4 @@
+app_adc.c:16:7:voltage_cal	1
+app_adc.c:22:6:adc1	1
+app_adc.c:31:6:adc2	1
+app_adc.c:40:6:adc_handler	1
