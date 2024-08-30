@@ -45,7 +45,7 @@ struct data d;
 	        clear_buffer();
            }
            reset_output();
-           	set_output();
+//           	set_output();
 //           		HAL_UART_Transmit(&huart2, (uint8_t*)d.GPIO, 4, HAL_MAX_DELAY);
 
             pin_status = read_pinstatus();

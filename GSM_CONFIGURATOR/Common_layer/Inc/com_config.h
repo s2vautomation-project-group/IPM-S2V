@@ -18,7 +18,7 @@ typedef enum
 
 typedef enum
 {
-  PIN_RESET = 0U,
+  PIN_RESET = 0,
   PIN_SET
 } myPinState;
 

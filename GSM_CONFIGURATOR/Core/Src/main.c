@@ -108,7 +108,7 @@ void data_store();
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-struct data d1;
+extern struct data d;
 //uint8_t A[4]="1010";
 
 /* USER CODE END 0 */
@@ -164,21 +164,21 @@ int main(void)
     /* USER CODE BEGIN 3 */
 	  Configurator();
 	  get_time();
-	  d1.hr=time.hour;
-	  d1.min=time.minutes;
-	  d1.sec=time.seconds;
-	  strcpy(d1.CH1, "ADC1");
-	  strcpy(d1.CH2, "ADC2");
-	  strcpy(d1.CH3, "ADC3");
-	  strcpy(d1.CH4, "ADC4");
+	  d.hr=time.hour;
+	  d.min=time.minutes;
+	  d.sec=time.seconds;
+	  strcpy(d.CH1, "ADC1");
+	  strcpy(d.CH2, "ADC2");
+	  strcpy(d.CH3, "ADC3");
+	  strcpy(d.CH4, "ADC4");
 //	  d1.GPIO[0]='SOH';
 //	  d1.GPIO[1]='1';
 //	  d1.GPIO[2]='1';
 //	  d1.GPIO[3]='1';
 //	  strcpy(d1.GPIO,"1001");
-	  	  		DataToGsm(&d1);
+	  	  		DataToGsm();
 	  //		HAL_Delay(2000);
-	  		DataToUart(&d1);
+	  		DataToUart();
   }
   /* USER CODE END 3 */
 }

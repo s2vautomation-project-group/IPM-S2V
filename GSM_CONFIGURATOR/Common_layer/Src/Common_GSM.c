@@ -16,6 +16,7 @@
 
 uint8_t buf1[4];
 uint8_t buf[50];
+extern struct data d;
 
 #define max_buf_len 100
 
@@ -61,14 +62,14 @@ void UART2_Init(void)
 //	HAL_UART_Transmit(&huart2, (uint8_t*)GPIO, 4,1000);
 //}
 
-void DataToUart(struct data *d)
+void DataToUart()
 {
 //	extern buffer_Time;
 //	sprintf(buffer_Time,"%02d:%02d:%02d",d1->hr,d1->min,d1->sec);
 //	HAL_UART_Transmit(&huart2, (uint8_t*)d->GPIO, 4, HAL_MAX_DELAY);
 
-	sprintf(buf,"%02d:%02d:%02d,%s,%s,%s,%s,%s,%s,%s,%s\r\n",d->hr,d->min,d->sec,d->CH1,d->CH2,d->CH3,d->CH4,d->Status1,d->Status2,d->Status3,d->Status4);
-//	HAL_UART_Transmit(&huart2, (uint8_t*)buf, strlen(buf), HAL_MAX_DELAY);
+	sprintf(buf,"%02d:%02d:%02d,%s,%s,%s,%s,%s,%s,%s,%s\r\n",d.hr,d.min,d.sec,d.CH1,d.CH2,d.CH3,d.CH4,d.Status1,d.Status2,d.Status3,d.Status4);
+	HAL_UART_Transmit(&huart2, (uint8_t*)buf, strlen(buf), HAL_MAX_DELAY);
 //	HAL_Delay(1000);
 
 }
