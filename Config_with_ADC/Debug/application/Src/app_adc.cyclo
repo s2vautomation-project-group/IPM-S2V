@@ -1,0 +1,3 @@
+app_adc.c:18:6:adc1	1
+app_adc.c:28:6:switch_channel	5
+app_adc.c:61:6:adc_handler	1

@@ -1,0 +1,7 @@
+app_config.c:30:7:Configurator	3
+app_config.c:58:7:clear_buffer	1
+app_config.c:69:7:set_output	5
+app_config.c:92:7:reset_output	5
+app_config.c:115:11:read_pinstatus	5
+app_config.c:137:6:extract_data	3
+app_config.c:175:6:pin_config	23

@@ -1,0 +1,8 @@
+../common/Src/com_adc.c:17:6:USER_SystemClock_Config	96	static
+../common/Src/com_adc.c:73:6:USER_ADC1_Init	8	static
+../common/Src/com_adc.c:136:6:USER_GPIO_Init	16	static
+../common/Src/com_adc.c:150:6:ADC_channel_set	16	static
+../common/Src/com_adc.c:180:6:adc_start	8	static
+../common/Src/com_adc.c:185:6:adc_conversion	8	static
+../common/Src/com_adc.c:190:10:adc_value	8	static
+../common/Src/com_adc.c:195:6:adc_stop	8	static
