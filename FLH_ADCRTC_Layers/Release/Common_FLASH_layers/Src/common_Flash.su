@@ -1,0 +1,9 @@
+../Common_FLASH_layers/Src/common_Flash.c:20:6:User_SystemClock_Config	96	static
+../Common_FLASH_layers/Src/common_Flash.c:81:7:User_ADC1_Init	32	static
+../Common_FLASH_layers/Src/common_Flash.c:139:7:User_I2C1_Init	8	static
+../Common_FLASH_layers/Src/common_Flash.c:187:6:User_GPIO_Init	16	static
+../Common_FLASH_layers/Src/common_Flash.c:210:6:Flash_ErasePage	32	static
+../Common_FLASH_layers/Src/common_Flash.c:237:6:Flash_WriteData	24	static
+../Common_FLASH_layers/Src/common_Flash.c:257:6:Flash_ReadData	8	static
+../Common_FLASH_layers/Src/common_Flash.c:314:6:I2C_Write	4	static
+../Common_FLASH_layers/Src/common_Flash.c:320:6:I2C_read	24	static

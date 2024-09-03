@@ -1,0 +1,10 @@
+../Application_FLASH_layers/Src/application_Flash.c:56:7:Voltage_Calculation	8	static
+../Application_FLASH_layers/Src/application_Flash.c:62:6:adc_handler	8	static
+../Application_FLASH_layers/Src/application_Flash.c:68:10:adc_value	0	static
+../Application_FLASH_layers/Src/application_Flash.c:73:6:HAL_ADC_ConvCpltCallback	8	static
+../Application_FLASH_layers/Src/application_Flash.c:81:9:decToBcd	0	static
+../Application_FLASH_layers/Src/application_Flash.c:87:9:bcdToDec	0	static
+../Application_FLASH_layers/Src/application_Flash.c:93:6:Set_Time	32	static
+../Application_FLASH_layers/Src/application_Flash.c:31:6:Application_Init	24	static
+../Application_FLASH_layers/Src/application_Flash.c:111:6:Get_Time	8	static
+../Application_FLASH_layers/Src/application_Flash.c:37:6:Application_Run	24	static
