@@ -1,0 +1,4 @@
+com_adc.c:15:6:SystemClock_Config	4
+com_adc.c:72:7:USER_ADC1_Init	3
+com_adc.c:125:6:USER_GPIO_Init	1
+com_adc.c:138:5:adc_value	1

@@ -1,0 +1,4 @@
+../commonlayer/Src/com_adc.c:15:6:SystemClock_Config	96	static
+../commonlayer/Src/com_adc.c:72:7:USER_ADC1_Init	32	static
+../commonlayer/Src/com_adc.c:125:6:USER_GPIO_Init	16	static
+../commonlayer/Src/com_adc.c:138:5:adc_value	8	static
