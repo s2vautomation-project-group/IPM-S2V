@@ -1,0 +1,7 @@
+../Application_layer/Src/application_RTC.c:31:9:decToBcd	16	static
+../Application_layer/Src/application_RTC.c:37:5:bcdToDec	16	static
+../Application_layer/Src/application_RTC.c:55:6:Set_Time	48	static
+../Application_layer/Src/application_RTC.c:71:6:Get_Time	16	static
+../Application_layer/Src/application_RTC.c:95:5:myDelay	8	static
+../Application_layer/Src/application_RTC.c:102:6:app	16	static
+../Application_layer/Src/application_RTC.c:184:6:OLED_data	24	static

@@ -1,0 +1,5 @@
+application.c:23:9:decToBcd	1
+application.c:29:5:bcdToDec	1
+application.c:47:6:Set_Time	1
+application.c:63:6:Get_Time	1
+application.c:87:6:app	1
