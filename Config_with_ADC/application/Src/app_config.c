@@ -26,36 +26,37 @@ uint8_t* pin_status;
 char config[4];
 uint8_t s[4];
 extern struct status d;
+uint8_t adcChnlChecker[4];
 
- void Configurator()
- {
-	 data_receive();
+void Configurator()
+{
+	data_receive();
 
-		  if (tx_data[0] != '\0')
-		   {
-		     flag = 1; // Set flag to indicate data has been received
-		   }
-		   else
-		   {
-			   flag=0;
-		   }
+	if (tx_data[0] != '\0')
+	{
+		flag = 1; // Set flag to indicate data has been received
+	}
+	else
+	{
+		flag=0;
+	}
 
-           if (flag)
-           {
-	        extract_data();
-	        pin_config();
-	        //clear_buffer();
-           }
-            reset_output();
-           	set_output();
-            pin_status = read_pinstatus();
-//            status_transmit();
-            //DataTOgsm(d);
+	if (flag)
+	{
+		extract_data();
+		pin_config();
+		//clear_buffer();
+	}
+	reset_output();
+	set_output();
+	pin_status = read_pinstatus();
+	//            status_transmit();
+	//DataTOgsm(d);
 
 
- }
+}
 
- void clear_buffer()
+void clear_buffer()
 {
 	memset(tx_data,0,sizeof (tx_data));
 }
@@ -66,11 +67,11 @@ extern struct status d;
 //   HAL_UART_Receive_IT(&huart1, (uint8_t *)buffer, 20);
 // }
 
- void set_output()
- {
-	 if(config[0] == 0)
+void set_output()
+{
+	if(config[0] == 0)
 	{
-		 d.gpio[0] = write_gpio(GPIOB,GPIO_PIN_0, PIN_SET);
+		d.gpio[0] = write_gpio(GPIOB,GPIO_PIN_0, PIN_SET);
 	}
 
 	if(config[1] == 0)
@@ -87,51 +88,51 @@ extern struct status d;
 	{
 		d.gpio[3] = write_gpio(GPIOB,GPIO_PIN_5, PIN_SET);
 	}
- }
+}
 
- void reset_output()
-  {
- 	 if(config[0] == 0)
- 	{
- 		d.gpio[0] = write_gpio(GPIOB,GPIO_PIN_0, PIN_RESET);
- 	}
+void reset_output()
+{
+	if(config[0] == 0)
+	{
+		d.gpio[0] = write_gpio(GPIOB,GPIO_PIN_0, PIN_RESET);
+	}
 
- 	if(config[1] == 0)
- 	{
- 		d.gpio[1]=write_gpio(GPIOB,GPIO_PIN_1, PIN_RESET);
- 	}
+	if(config[1] == 0)
+	{
+		d.gpio[1]=write_gpio(GPIOB,GPIO_PIN_1, PIN_RESET);
+	}
 
- 	if(config[2] == 0)
- 	{
- 		d.gpio[2] = write_gpio(GPIOB,GPIO_PIN_4, PIN_RESET);
- 	}
+	if(config[2] == 0)
+	{
+		d.gpio[2] = write_gpio(GPIOB,GPIO_PIN_4, PIN_RESET);
+	}
 
- 	if(config[3] == 0)
- 	{
- 		d.gpio[3] = write_gpio(GPIOB,GPIO_PIN_5, PIN_RESET);
- 	}
-  }
+	if(config[3] == 0)
+	{
+		d.gpio[3] = write_gpio(GPIOB,GPIO_PIN_5, PIN_RESET);
+	}
+}
 
- uint8_t* read_pinstatus()
- {
-	 if(config[0]==1)
-	 {
-	     d.gpio[0]=read_gpio( GPIOB,GPIO_PIN_0);
-	 }
-	 if(config[1]==1)
-	 {
-		 d.gpio[1]=read_gpio( GPIOB,GPIO_PIN_1);
-	 }
-	 if(config[2]==1)
-	 {
-	    d.gpio[2]=read_gpio( GPIOB,GPIO_PIN_4);
-	 }
+uint8_t* read_pinstatus()
+{
+	if(config[0]==1)
+	{
+		d.gpio[0]=read_gpio( GPIOB,GPIO_PIN_0);
+	}
+	if(config[1]==1)
+	{
+		d.gpio[1]=read_gpio( GPIOB,GPIO_PIN_1);
+	}
+	if(config[2]==1)
+	{
+		d.gpio[2]=read_gpio( GPIOB,GPIO_PIN_4);
+	}
 	if(config[3]==1)
 	{
-	   d.gpio[3]=read_gpio( GPIOB,GPIO_PIN_5);
-    }
-	 return d.gpio;
- }
+		d.gpio[3]=read_gpio( GPIOB,GPIO_PIN_5);
+	}
+	return d.gpio;
+}
 
 
 void extract_data()
@@ -139,21 +140,21 @@ void extract_data()
 	token = strtok(tx_data, ",");
 
 
-		     if (token != NULL)
-		     {
-		         strncpy(arr1, token, sizeof(arr1) - 1);
+	if (token != NULL)
+	{
+		strncpy(arr1, token, sizeof(arr1) - 1);
 
-		         arr1[sizeof(arr1) - 1] = '\0'; // Ensure null-termination
-		         token = strtok(NULL, ",");
-		     }
+		arr1[sizeof(arr1) - 1] = '\0'; // Ensure null-termination
+		token = strtok(NULL, ",");
+	}
 
-		     // Get the second token and store it in arr2
-		     if (token != NULL)
-		     {
-		         strncpy(arr2, token, sizeof(arr2) - 1);
-		         arr2[sizeof(arr2) - 1] = '\0'; // Ensure null-termination
-		         //token = strtok(NULL, ",");
-		     }
+	// Get the second token and store it in arr2
+	if (token != NULL)
+	{
+		strncpy(arr2, token, sizeof(arr2) - 1);
+		arr2[sizeof(arr2) - 1] = '\0'; // Ensure null-termination
+		//token = strtok(NULL, ",");
+	}
 
 
 }
@@ -175,147 +176,171 @@ void extract_data()
 void pin_config()
 {
 
-	            if(strcmp(arr1,"B0")==0)
-			     {
-			       switch_val=1;
-			     }
+	if(strcmp(arr1,"B0")==0)
+	{
+		switch_val=1;
+	}
 
-	            else if(strcmp(arr1,"B1")==0)
-				 {
-				   switch_val=2;
-				 }
+	else if(strcmp(arr1,"B1")==0)
+	{
+		switch_val=2;
+	}
 
-	            else if(strcmp(arr1,"B4")==0)
-	           	 {
-	           		switch_val=3;
-	           	 }
+	else if(strcmp(arr1,"B4")==0)
+	{
+		switch_val=3;
+	}
 
-	            else if(strcmp(arr1,"B5")==0)
-                 {
-				    switch_val=4;
-				 }
+	else if(strcmp(arr1,"B5")==0)
+	{
+		switch_val=4;
+	}
 
-	            else if(strcmp(arr1,"ADC1")==0)
-				 {
-					switch_val=5;
-				 }
+	else if(strcmp(arr1,"ADC1")==0)
+	{
+		switch_val=5;
+	}
 
-	            else if(strcmp(arr1,"RTC")==0)
-	             {
-	            	switch_val=6;
-	             }
+	else if(strcmp(arr1,"RTC")==0)
+	{
+		switch_val=6;
+	}
 
-	            else if(strcmp(arr1,"SCANTIME")==0)
-				 {
-					switch_val=7;
-				 }
+	else if(strcmp(arr1,"SCANTIME")==0)
+	{
+		switch_val=7;
+	}
 
 
-			     switch(switch_val)
-			     {
+	switch(switch_val)
+	{
 
-			     case 1:
-			    	 	if(strcmp(arr2,"OUTPUT")==0)
-						{
-			              user_GPIO_Init(GPIOB,GPIO_PIN_0,OUTPUT);
-					      config[0] = 0;
-						}
+	case 1:
+		if(strcmp(arr2,"OUTPUT")==0)
+		{
+			user_GPIO_Init(GPIOB,GPIO_PIN_0,OUTPUT);
+			config[0] = 0;
+		}
 
-			              else if(strcmp(arr2,"INPUT")==0)
-					    {
-						   user_GPIO_Init(GPIOB,GPIO_PIN_0,INPUT);
-						   config[0] = 1;
-					    }
-			     break;
+		else if(strcmp(arr2,"INPUT")==0)
+		{
+			user_GPIO_Init(GPIOB,GPIO_PIN_0,INPUT);
+			config[0] = 1;
+		}
+		break;
 
-			   case 2:
-				    	if(strcmp(arr2,"OUTPUT")==0)
-			    		{
-			    	      user_GPIO_Init(GPIOB,GPIO_PIN_1,OUTPUT);
-			    	      config[1]=0;
-			    		}
+	case 2:
+		if(strcmp(arr2,"OUTPUT")==0)
+		{
+			user_GPIO_Init(GPIOB,GPIO_PIN_1,OUTPUT);
+			config[1]=0;
+		}
 
-			    	     else if(strcmp(arr2,"INPUT")==0)
-			    		{
-			    		  user_GPIO_Init(GPIOB,GPIO_PIN_1,INPUT);
-			    		  config[1]=1;
-			    		}
-	    	    break;
+		else if(strcmp(arr2,"INPUT")==0)
+		{
+			user_GPIO_Init(GPIOB,GPIO_PIN_1,INPUT);
+			config[1]=1;
+		}
+		break;
 
-			     case 3:
-			    	 	if(strcmp(arr2,"OUTPUT")==0)
-			     		{
-			     		  user_GPIO_Init(GPIOB,GPIO_PIN_4,OUTPUT);
-			     		  config[2]=0;
-			     	    }
+	case 3:
+		if(strcmp(arr2,"OUTPUT")==0)
+		{
+			user_GPIO_Init(GPIOB,GPIO_PIN_4,OUTPUT);
+			config[2]=0;
+		}
 
-			     		 else if(strcmp(arr2,"INPUT")==0)
-			     		{
-			     		  user_GPIO_Init(GPIOB,GPIO_PIN_4,INPUT);
-			     		  config[2]=1;
-			     		}
+		else if(strcmp(arr2,"INPUT")==0)
+		{
+			user_GPIO_Init(GPIOB,GPIO_PIN_4,INPUT);
+			config[2]=1;
+		}
 
-			     break;
+		break;
 
-			     case 4:
-			    	 	 if(strcmp(arr2,"OUTPUT")==0)
-			    		{
-			    	      user_GPIO_Init(GPIOB,GPIO_PIN_5,OUTPUT);
-			    		  config[3]=0;
-			    	    }
+	case 4:
+		if(strcmp(arr2,"OUTPUT")==0)
+		{
+			user_GPIO_Init(GPIOB,GPIO_PIN_5,OUTPUT);
+			config[3]=0;
+		}
 
-			    		  else if(strcmp(arr2,"INPUT")==0)
-			    	    {
-			              user_GPIO_Init(GPIOB,GPIO_PIN_5,INPUT);
-			              config[3]=1;
-			    	    }
-			     break;
+		else if(strcmp(arr2,"INPUT")==0)
+		{
+			user_GPIO_Init(GPIOB,GPIO_PIN_5,INPUT);
+			config[3]=1;
+		}
+		break;
 
-			     case 5:
-						 if(strcmp(arr2,"CH1")==0)
-						{
-							 //ADC_channel_set(CHANNEL_5);
-							 ADC_select_CH5();
-						}
+	case 5:
+		if(strcmp(arr2,"CH1")==0)
+		{
+			ADC_select_CH1();
+			adcChnlChecker[0] = 1;
+		}
 
-						 else if(strcmp(arr2,"CH2")==0)
-						{
-							 // ADC_channel_set(CHANNEL_6);
-							 ADC_select_CH6();
-						}
-				 break;
+		else if(strcmp(arr2,"CH2")==0)
+		{
+			ADC_select_CH2();
+			adcChnlChecker[1] = 1;
+		}
 
-//			     case 6:
+		else if(strcmp(arr2,"CH3")==0)
+		{
+			ADC_select_CH3();
+			adcChnlChecker[2] = 1;
+		}
 
-//				  token = strtok(arr2, ":");
-//
-//				 // Get the first token and convert to integer
-//				 if (token != NULL)
-//				 {
-//					 time.hour = atoi(token);
-//					 token = strtok(NULL, ":");
-//				 }
-//
-//				 // Get the second token and convert to integer
-//				 if (token != NULL)
-//				 {
-//					 time.minutes = atoi(token);
-//					 token = strtok(NULL, ":");
-//				 }
-//
-//				 // Get the third token and convert to integer
-//				 if (token != NULL)
-//				 {
-//
-//					 time.seconds = atoi(token);
-//				 }
-//				 Set_Time(time);
-//
-//			 break;
-//			     case 7:
-//			    	 d.SCANTIME = (uint8_t)atoi(arr2);
-//			    	 DataTOgsm(d);
-			     }
+		else if(strcmp(arr2,"CH4")==0)
+		{
+			ADC_select_CH4();
+			adcChnlChecker[3] = 1;
+		}
+
+		else if(strcmp(arr2,"DB2")==0)
+		{
+			adcChnlChecker[0] = 0;
+			adcChnlChecker[1] = 0;
+			adcChnlChecker[2] = 0;
+			adcChnlChecker[3] = 0;
+		}
+		else
+		{
+			__NOP();
+		}
+		break;
+
+		//			     case 6:
+
+		//				  token = strtok(arr2, ":");
+		//
+		//				 // Get the first token and convert to integer
+		//				 if (token != NULL)
+		//				 {
+		//					 time.hour = atoi(token);
+		//					 token = strtok(NULL, ":");
+		//				 }
+		//
+		//				 // Get the second token and convert to integer
+		//				 if (token != NULL)
+		//				 {
+		//					 time.minutes = atoi(token);
+		//					 token = strtok(NULL, ":");
+		//				 }
+		//
+		//				 // Get the third token and convert to integer
+		//				 if (token != NULL)
+		//				 {
+		//
+		//					 time.seconds = atoi(token);
+		//				 }
+		//				 Set_Time(time);
+		//
+		//			 break;
+		//			     case 7:
+		//			    	 d.SCANTIME = (uint8_t)atoi(arr2);
+		//			    	 DataTOgsm(d);
+	}
 }
 
 

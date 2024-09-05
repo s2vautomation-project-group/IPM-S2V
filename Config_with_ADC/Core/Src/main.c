@@ -52,8 +52,8 @@
 /* USER CODE BEGIN PV */
 //ADC_Channel channel[2]={my_ADC_CHANNEL_5,my_ADC_CHANNEL_6};
 //size_t num_channel = sizeof(channel) / sizeof(channel[0]);
-ADC_Channel channel5=my_ADC_CHANNEL_5;
-ADC_Channel channel6=my_ADC_CHANNEL_6;
+//ADC_Channel channel5=my_ADC_CHANNEL_5;
+//ADC_Channel channel6=my_ADC_CHANNEL_6;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -90,7 +90,7 @@ int main(void)
   /* USER CODE END Init */
 
   /* Configure the system clock */
-  USER_SystemClock_Config();
+  user_SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
 
@@ -114,9 +114,7 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
       Configurator();
-//	  adc_handler();
-	  adc_handler(channel5);
-	  adc_handler(channel6);
+      ADC_handler();
 
   }
   /* USER CODE END 3 */
@@ -191,13 +189,13 @@ int main(void)
 //{
 //
 //  /* USER CODE BEGIN ADC1_Init 0 */
-////
+//////
 //  /* USER CODE END ADC1_Init 0 */
 //
 //  ADC_ChannelConfTypeDef sConfig = {0};
 //
 //  /* USER CODE BEGIN ADC1_Init 1 */
-////
+//////
 //  /* USER CODE END ADC1_Init 1 */
 //
 //  /** Common config
@@ -210,7 +208,7 @@ int main(void)
 //  hadc1.Init.EOCSelection = ADC_EOC_SEQ_CONV;
 //  hadc1.Init.LowPowerAutoWait = DISABLE;
 //  hadc1.Init.ContinuousConvMode = ENABLE;
-//  hadc1.Init.NbrOfConversion = 2;
+//  hadc1.Init.NbrOfConversion = 4;
 //  hadc1.Init.DiscontinuousConvMode = DISABLE;
 //  hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
 //  hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
@@ -243,8 +241,26 @@ int main(void)
 //  {
 //    Error_Handler();
 //  }
+//
+//  /** Configure Regular Channel
+//  */
+//  sConfig.Channel = ADC_CHANNEL_9;
+//  sConfig.Rank = ADC_REGULAR_RANK_3;
+//  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+//  {
+//    Error_Handler();
+//  }
+//
+//  /** Configure Regular Channel
+//  */
+//  sConfig.Channel = ADC_CHANNEL_10;
+//  sConfig.Rank = ADC_REGULAR_RANK_4;
+//  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+//  {
+//    Error_Handler();
+//  }
 //  /* USER CODE BEGIN ADC1_Init 2 */
-////
+//////
 //  /* USER CODE END ADC1_Init 2 */
 //
 //}
@@ -258,11 +274,11 @@ int main(void)
 //{
 //
 //  /* USER CODE BEGIN USART1_Init 0 */
-////
+//////
 //  /* USER CODE END USART1_Init 0 */
 //
 //  /* USER CODE BEGIN USART1_Init 1 */
-////
+//////
 //  /* USER CODE END USART1_Init 1 */
 //  huart1.Instance = USART1;
 //  huart1.Init.BaudRate = 115200;
@@ -279,7 +295,7 @@ int main(void)
 //    Error_Handler();
 //  }
 //  /* USER CODE BEGIN USART1_Init 2 */
-////
+//////
 //  /* USER CODE END USART1_Init 2 */
 //
 //}
@@ -301,15 +317,15 @@ int main(void)
 ///* USER CODE BEGIN MX_GPIO_Init_2 */
 ///* USER CODE END MX_GPIO_Init_2 */
 //}
+
+/* USER CODE BEGIN 4 */
 //
-///* USER CODE BEGIN 4 */
-//
-///* USER CODE END 4 */
-//
-///**
-//  * @brief  This function is executed in case of error occurrence.
-//  * @retval None
-//  */
+/* USER CODE END 4 */
+
+/**
+  * @brief  This function is executed in case of error occurrence.
+  * @retval None
+  */
 void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */

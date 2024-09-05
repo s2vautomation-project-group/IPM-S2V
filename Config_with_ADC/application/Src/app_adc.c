@@ -10,11 +10,18 @@
 #include"app_adc.h"
 #include"com_adc.h"
 
+extern uint8_t adcChnlChecker[4];
 
+//struct ADC_VAL
+//{
+//	float adc1_value;
+//	float adc2_value;
+//};
+//
 
 uint16_t raw_value;
 
-float adc1_value,adc2_value;
+float adc1_value,adc2_value,adc3_value,adc4_value;
 
 float voltage_cal(void)
 {
@@ -22,39 +29,125 @@ float voltage_cal(void)
 	return (raw_value * (3.3 / 4095));
 }
 
-void adc_channel(ADC_Channel channel)
+void ADC_handler()
 {
-	switch(channel)
+	if(adcChnlChecker[0] == 1)
 	{
-	case my_ADC_CHANNEL_5:
-		ADC_select_CH5();
-		break;
-	case my_ADC_CHANNEL_6:
-		ADC_select_CH6();
-		break;
-
-	}
-	adc_start();
-	adc_conversion();
-	if (channel == my_ADC_CHANNEL_5)
-	{
+		ADC_select_CH1();
+		adc_start();
+		adc_conversion();
 		adc1_value = voltage_cal();
-	} else if (channel == my_ADC_CHANNEL_6)
-	{
-		adc2_value = voltage_cal();
+		adc_stop();
 	}
-	adc_stop();
+	else
+	{
+		__NOP();
+	}
+	if(adcChnlChecker[1] == 1)
+	{
+		ADC_select_CH2();
+		adc_start();
+		adc_conversion();
+		adc2_value = voltage_cal();
+		adc_stop();
+	}
+	else
+	{
+		__NOP();
+	}
+	if(adcChnlChecker[2] == 1)
+	{
+		ADC_select_CH3();
+		adc_start();
+		adc_conversion();
+		adc3_value = voltage_cal();
+		adc_stop();
+	}
+	else
+	{
+		__NOP();
+	}
+	if(adcChnlChecker[3] == 1)
+	{
+		ADC_select_CH4();
+		adc_start();
+		adc_conversion();
+		adc4_value = voltage_cal();
+		adc_stop();
+	}
+	else
+	{
+		__NOP();
+	}
+//	adc_stop();
+
 }
+
+//void adc_channel(ADC_Channel channel)
+//{
+
+
+
+//	if(adcChnlChecker[0] == 1)
+//	{
+//		adc_start();
+//		ADC_select_CH5();
+//		adc_conversion();
+//		adc1_value = voltage_cal();
+//	}
+//	else
+//	{
+//		__NOP();
+//	}
+//	if(adcChnlChecker[1] == 1)
+//	{
+//		adc_start();
+//		ADC_select_CH5();
+//		adc_conversion();
+//		adc1_value = voltage_cal();
+//	}
+//	else
+//	{
+//		__NOP();
+//	}
+
+//	if (channel == my_ADC_CHANNEL_5)
+//	{
+//		adc_start();
+//		ADC_select_CH5();
+//		adc_conversion();
+//		adc1_value = voltage_cal();
+//	} else if (channel == my_ADC_CHANNEL_6)
+//	{
+//		adc_start();
+//		ADC_select_CH6();
+//		adc_conversion();
+//		adc2_value = voltage_cal();
+//	}
+//	else if(channel == my_ADC_CHANNEL_6)
+//	{
+//		adc_start();
+//		ADC_select_CH5();
+//		adc_conversion();
+//		adc1_value = voltage_cal();
+//
+//		adc_start();
+//		ADC_select_CH6();
+//		adc_conversion();
+//		adc2_value = voltage_cal();
+//	}
+//	adc_stop();
+//}
 
 //void adc_handler(ADC_Channel channel[], size_t num_channel)
-void adc_handler(ADC_Channel channel)
-{
-//	for (size_t i = 0; i < num_channel; i++) {
-//    adc_channel(channel[i]);
-
-
-	adc_channel(channel);
-}
+//void adc_handler(ADC_Channel channel)
+//{
+////	for (size_t i = 0; i < num_channel; i++) {
+////    adc_channel(channel[i]);
+//
+//
+//	adc_channel(channel);
+//}
 
 
 //int A1,A2;
