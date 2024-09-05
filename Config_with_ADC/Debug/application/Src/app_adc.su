@@ -1,3 +1,0 @@
-../application/Src/app_adc.c:18:6:adc1	8	static
-../application/Src/app_adc.c:28:6:switch_channel	8	static
-../application/Src/app_adc.c:61:6:adc_handler	8	static
