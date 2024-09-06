@@ -1,0 +1,8 @@
+../Common/Src/com_config.c:22:6:user_SystemClock_Config	96	static
+../Common/Src/com_config.c:79:7:user_USART1_UART_Init	8	static
+../Common/Src/com_config.c:106:7:user_GPIO_Init	32	static
+../Common/Src/com_config.c:141:7:gpio_output	40	static
+../Common/Src/com_config.c:153:7:gpio_input	40	static
+../Common/Src/com_config.c:167:6:data_receive	8	static
+../Common/Src/com_config.c:184:13:read_gpio	16	static
+../Common/Src/com_config.c:190:13:write_gpio	16	static

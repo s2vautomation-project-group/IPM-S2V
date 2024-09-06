@@ -1,0 +1,2 @@
+../Application/Src/app_adc.c:30:7:voltage_cal	8	static
+../Application/Src/app_adc.c:36:6:ADC_handler	8	static,ignoring_inline_asm

@@ -1,0 +1,11 @@
+com_adc.c:22:6:USER_SystemClock_Config	4
+com_adc.c:78:6:USER_ADC1_Init	2
+com_adc.c:141:6:USER_GPIO_Init	1
+com_adc.c:155:6:ADC_select_CH1	2
+com_adc.c:170:6:ADC_select_CH2	2
+com_adc.c:185:6:ADC_select_CH3	2
+com_adc.c:200:6:ADC_select_CH4	2
+com_adc.c:242:6:adc_start	1
+com_adc.c:247:6:adc_conversion	1
+com_adc.c:252:10:adc_value	1
+com_adc.c:257:6:adc_stop	1
