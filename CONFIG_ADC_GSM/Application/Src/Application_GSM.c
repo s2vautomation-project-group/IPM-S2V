@@ -31,11 +31,11 @@ void DataToGsm(struct data *d)
 	uint8_t ST=d->scan_time;
 	//	DataToCloud(d1->time,d1->CH1,d1->CH2,d1->CH3,d1->CH4,d1->D1,d1->D2,d1->D3,d1->D4);
 	sprintf(buffer_Time,"%02d:%02d:%02d",d->hr,d->min,d->sec);
-	HAL_UART_Transmit(&huart2, (uint8_t*)d->GPIO, 4, HAL_MAX_DELAY);
-	sprintf(CH1,"f",d->adc1_value);
-	sprintf(CH2,"f",d->adc2_value);
-	sprintf(CH3,"f",d->adc3_value);
-	sprintf(CH4,"f",d->adc4_value);
+//	HAL_UART_Transmit(&huart2, (uint8_t*)d->GPIO, 4, HAL_MAX_DELAY);
+	sprintf(CH1,"%f",d->adc1_value);
+	sprintf(CH2,"%f",d->adc2_value);
+	sprintf(CH3,"%f",d->adc3_value);
+	sprintf(CH4,"%f",d->adc4_value);
 
 	if(d->GPIO[0]==1)
 	{

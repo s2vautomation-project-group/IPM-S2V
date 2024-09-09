@@ -5,21 +5,30 @@
  *      Author: KAVYA
  */
 
-#ifndef INC_APP_CONFIG_H_
-#define INC_APP_CONFIG_H_
+#ifndef APPLICATION_INC_APP_H_
+#define APPLICATION_INC_APP_H_
 
-#include "data.h"
-//void DataTOgsm();
-//void gpiostatus(struct status d);
+
+
+
+//struct status
+//{
+//	uint8_t gpio[4];
+//    uint8_t SCANTIME;
+//};
+
+//extern struct status d;
+
+void DataTOgsm();
+void gpiostatus(struct data d);
 //void setTime(struct time t);
-void set_output(struct data *d);
-void reset_output(struct data *d);
-void read_pinstatus(struct data *d);
+void set_output();
+void reset_output();
+uint8_t* read_pinstatus();
 void Configurator();
 void extract_data();
 void pin_config();
 void clear_buffer();
 
 
-
-#endif /* INC_APP_CONFIG_H_ */
+#endif /* APPLICATION_INC_APP_H_ */

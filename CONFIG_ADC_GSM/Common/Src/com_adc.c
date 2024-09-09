@@ -11,9 +11,7 @@
 #include"com_adc.h"
 #include"app_adc.h"
 #include "app_config.h"
-#include "data.h"
-#include "Application_GSM.h"
-#include "Common_GSM.h"
+
 uint32_t ss[4];
 
 

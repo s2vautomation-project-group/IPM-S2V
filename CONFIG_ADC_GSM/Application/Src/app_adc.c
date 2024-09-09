@@ -11,10 +11,9 @@
 #include"app_adc.h"
 #include"com_adc.h"
 #include "data.h"
-#include "Application_GSM.h"
-#include "Common_GSM.h"
 
 extern uint8_t adcChnlChecker[4];
+
 
 //struct ADC_VAL
 //{
@@ -33,14 +32,14 @@ float voltage_cal(void)
 	return (raw_value * (3.3 / 4095));
 }
 
-void ADC_handler()
+void ADC_handler(struct data *d)
 {
 	if(adcChnlChecker[0] == 1)
 	{
 		ADC_select_CH1();
 		adc_start();
 		adc_conversion();
-		d.adc1_value = voltage_cal();
+		d->adc1_value = voltage_cal();
 		adc_stop();
 	}
 	else
@@ -52,7 +51,7 @@ void ADC_handler()
 		ADC_select_CH2();
 		adc_start();
 		adc_conversion();
-		d.adc2_value = voltage_cal();
+		d->adc2_value = voltage_cal();
 		adc_stop();
 	}
 	else
@@ -64,7 +63,7 @@ void ADC_handler()
 		ADC_select_CH3();
 		adc_start();
 		adc_conversion();
-		d.adc3_value = voltage_cal();
+		d->adc3_value = voltage_cal();
 		adc_stop();
 	}
 	else
@@ -76,7 +75,7 @@ void ADC_handler()
 		ADC_select_CH4();
 		adc_start();
 		adc_conversion();
-		d.adc4_value = voltage_cal();
+		d->adc4_value = voltage_cal();
 		adc_stop();
 	}
 	else

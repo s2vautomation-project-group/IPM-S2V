@@ -26,6 +26,8 @@
 #include "Common_GSM.h"
 #include "app_config.h"
 #include "com_config.h"
+#include"com_adc.h"
+#include"app_adc.h"
 #include "ctype.h"
 #include <stdio.h>
 #include <stdint.h>
@@ -145,9 +147,12 @@ int main(void)
   MX_I2C1_Init();
 //  MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
+
   UART2_Init();
+  USER_ADC1_Init();
+     USER_GPIO_Init();
   user_USART1_UART_Init();
-  	set_time(00,30,2,5,30,7,24);
+  	set_time(00,30,14,9,9,9,24);
 
   	Gsm_Init();
 
@@ -161,11 +166,11 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 	  Configurator();
+	  ADC_handler(&d);
 	  		get_time();
 //	  		d.hr=time.hour;
 //	  		d.min=time.minutes;
 //	  		d.sec=time.seconds;
-
 	  		DataToGsm(&d);
 	  		DataToUart(&d);
   }
@@ -448,9 +453,9 @@ void get_time()
 {
 	uint8_t get_time[7];
 	HAL_I2C_Mem_Read(&hi2c1, RTC_add, 0x00, 1, get_time, 7, HAL_MAX_DELAY);
-	d.hr=bcd_dec(get_time[0]);
+	d.sec=bcd_dec(get_time[0]);
 	d.min=bcd_dec(get_time[1]);
-	d.sec=bcd_dec(get_time[2]);
+	d.hr=bcd_dec(get_time[2]);
 	d.day=bcd_dec(get_time[3]);
 	d.date=bcd_dec(get_time[4]);
 	d.month=bcd_dec(get_time[5]);

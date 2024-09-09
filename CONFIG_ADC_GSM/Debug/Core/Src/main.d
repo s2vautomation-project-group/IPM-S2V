@@ -34,7 +34,9 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/CONFIG_ADC_GSM/Application/Inc/Application_GSM.h \
  C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/CONFIG_ADC_GSM/Common/Inc/Common_GSM.h \
  C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/CONFIG_ADC_GSM/Application/Inc/app_config.h \
- C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/CONFIG_ADC_GSM/Common/Inc/com_config.h
+ C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/CONFIG_ADC_GSM/Common/Inc/com_config.h \
+ C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/CONFIG_ADC_GSM/Common/Inc/com_adc.h \
+ C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/CONFIG_ADC_GSM/Application/Inc/app_adc.h
 ../Core/Inc/main.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
 ../Core/Inc/stm32l4xx_hal_conf.h:
@@ -72,3 +74,5 @@ C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/CONFIG_ADC_GSM/Application/Inc/Appl
 C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/CONFIG_ADC_GSM/Common/Inc/Common_GSM.h:
 C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/CONFIG_ADC_GSM/Application/Inc/app_config.h:
 C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/CONFIG_ADC_GSM/Common/Inc/com_config.h:
+C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/CONFIG_ADC_GSM/Common/Inc/com_adc.h:
+C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/CONFIG_ADC_GSM/Application/Inc/app_adc.h:

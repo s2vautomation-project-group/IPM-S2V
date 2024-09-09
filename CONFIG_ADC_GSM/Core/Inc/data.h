@@ -29,6 +29,6 @@ struct data
 	char Status4[10];
  };
 
-extern struct data d;
+//extern struct data d;
 
 #endif /* INC_DATA_H_ */

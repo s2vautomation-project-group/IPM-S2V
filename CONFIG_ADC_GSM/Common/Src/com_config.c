@@ -8,16 +8,28 @@
 #include "com_config.h"
 #include "main.h"
 #include <string.h>
+#include "app_config.h"
+#include "data.h"
+//#include "Cqueue.h"
 
 
+//A5,OUTPUT
+//A5,INPUT
+//A6,INPUT
+//A6,OUTPUT
+//B0,OUTPUT
+//B0,INPUT
+
+//B1,OUTPUT
+//B1,INPUT
 
 
 
 
 extern  char  tx_data[15];
- extern UART_HandleTypeDef huart1;
+extern UART_HandleTypeDef huart1;
 GPIO_InitTypeDef GPIO_InitStruct = {0};
-uint8_t GPIO[4];
+//extern struct data d;
 
 void user_SystemClock_Config(void)
 
@@ -175,7 +187,7 @@ void data_receive()
 
 //void status_transmit()
 // {
-//	if ((HAL_UART_Transmit(&huart1, (uint8_t *)gpio, 4,1000)) == HAL_ERROR)
+//	if ((HAL_UART_Transmit(&huart1, (uint8_t *)d.gpio, 4,1000)) == HAL_ERROR)
 //	 {
 //		 Error_Handler();
 //	 }

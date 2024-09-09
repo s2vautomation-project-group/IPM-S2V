@@ -6,8 +6,6 @@
  */
 
 #include "main.h"
-
-
 #ifndef INC_COM_ADC_H_
 #define INC_COM_ADC_H_
 

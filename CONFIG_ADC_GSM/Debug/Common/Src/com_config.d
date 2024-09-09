@@ -30,7 +30,9 @@ Common/Src/com_config.o: ../Common/Src/com_config.c \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pwr.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pwr_ex.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h \
- ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h
+ ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h \
+ C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/CONFIG_ADC_GSM/Application/Inc/app_config.h \
+ ../Core/Inc/data.h
 C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/CONFIG_ADC_GSM/Common/Inc/com_config.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
@@ -64,3 +66,5 @@ C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/CONFIG_ADC_GSM/Common/Inc/com_confi
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pwr_ex.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h:
+C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/CONFIG_ADC_GSM/Application/Inc/app_config.h:
+../Core/Inc/data.h:

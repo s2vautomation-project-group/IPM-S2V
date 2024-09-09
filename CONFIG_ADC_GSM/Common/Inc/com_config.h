@@ -5,10 +5,11 @@
  *      Author: KAVYA
  */
 
-#ifndef INC_COM_CONFIG_H_
-#define INC_COM_CONFIG_H_
-
 #include "main.h"
+
+#ifndef COMMON_INC_COM_H_
+#define COMMON_INC_COM_H_
+
 
 typedef enum
 {
@@ -18,7 +19,7 @@ typedef enum
 
 typedef enum
 {
-  PIN_RESET = 0,
+  PIN_RESET = 0U,
   PIN_SET
 } myPinState;
 
@@ -35,6 +36,4 @@ myPinState write_gpio(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin, myPinState PinStat
 
 
 
-
-
-#endif /* INC_COM_CONFIG_H_ */
+#endif /* COMMON_INC_COM_H_ */
