@@ -1,0 +1,10 @@
+../Common/Src/com_ADC.c:78:6:USER_ADC1_Init	8	static
+../Common/Src/com_ADC.c:114:6:USER_GPIO_Init	24	static
+../Common/Src/com_ADC.c:129:6:ADC_select_CH1	8	static
+../Common/Src/com_ADC.c:141:6:ADC_select_CH2	8	static
+../Common/Src/com_ADC.c:152:6:ADC_select_CH3	8	static
+../Common/Src/com_ADC.c:163:6:ADC_select_CH4	8	static
+../Common/Src/com_ADC.c:202:6:adc_start	8	static
+../Common/Src/com_ADC.c:207:6:adc_conversion	8	static
+../Common/Src/com_ADC.c:212:10:adc_value	8	static
+../Common/Src/com_ADC.c:217:6:adc_stop	8	static
