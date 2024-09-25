@@ -63,7 +63,7 @@ main-build: Integration_Config_ADC_GSM_RTC_F446RE.elf secondary-outputs
 
 # Tool invocations
 Integration_Config_ADC_GSM_RTC_F446RE.elf Integration_Config_ADC_GSM_RTC_F446RE.map: $(OBJS) $(USER_OBJS) E:\GitHub_F446RE\IPM-S2V\Integration_Config_ADC_RTC_GSM_using_F446RE\Integration_Config_ADC_GSM_RTC_F446RE\STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Integration_Config_ADC_GSM_RTC_F446RE.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"E:\GitHub_F446RE\IPM-S2V\Integration_Config_ADC_RTC_GSM_using_F446RE\Integration_Config_ADC_GSM_RTC_F446RE\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Integration_Config_ADC_GSM_RTC_F446RE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+	arm-none-eabi-gcc -o "Integration_Config_ADC_GSM_RTC_F446RE.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"E:\GitHub_F446RE\IPM-S2V\Integration_Config_ADC_RTC_GSM_using_F446RE\Integration_Config_ADC_GSM_RTC_F446RE\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Integration_Config_ADC_GSM_RTC_F446RE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

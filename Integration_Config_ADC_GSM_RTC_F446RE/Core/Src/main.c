@@ -65,11 +65,11 @@ UART_HandleTypeDef huart3;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 //static void MX_GPIO_Init(void);
+//static void MX_ADC1_Init(void);
 //static void MX_I2C1_Init(void);
-//static void MX_USART3_UART_Init(void);
 //static void MX_UART4_Init(void);
 //static void MX_USART1_UART_Init(void);
-//static void MX_ADC1_Init(void);
+//static void MX_USART3_UART_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -108,11 +108,11 @@ int main(void)
 
   /* Initialize all configured peripherals */
 //  MX_GPIO_Init();
+//  MX_ADC1_Init();
 //  MX_I2C1_Init();
-//  MX_USART3_UART_Init();
 //  MX_UART4_Init();
 //  MX_USART1_UART_Init();
-//  MX_ADC1_Init();
+//  MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
 //  MX_GPIO_Init();
     USER_GPIO_Init();
@@ -196,13 +196,13 @@ int main(void)
 //{
 //
 //  /* USER CODE BEGIN ADC1_Init 0 */
-////////////////
+////////////////////
 //  /* USER CODE END ADC1_Init 0 */
 //
 //  ADC_ChannelConfTypeDef sConfig = {0};
 //
 //  /* USER CODE BEGIN ADC1_Init 1 */
-////////////////
+////////////////////
 //  /* USER CODE END ADC1_Init 1 */
 //
 //  /** Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of conversion)
@@ -228,7 +228,7 @@ int main(void)
 //  */
 //  sConfig.Channel = ADC_CHANNEL_5;
 //  sConfig.Rank = 1;
-//  sConfig.SamplingTime = ADC_SAMPLETIME_144CYCLES;
+//  sConfig.SamplingTime = ADC_SAMPLETIME_480CYCLES;
 //  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
 //  {
 //    Error_Handler();
@@ -261,7 +261,7 @@ int main(void)
 //    Error_Handler();
 //  }
 //  /* USER CODE BEGIN ADC1_Init 2 */
-////////////////
+////////////////////
 //  /* USER CODE END ADC1_Init 2 */
 //
 //}
@@ -275,11 +275,11 @@ int main(void)
 //{
 //
 //  /* USER CODE BEGIN I2C1_Init 0 */
-//////////////////////////
+//////////////////////////////
 //  /* USER CODE END I2C1_Init 0 */
 //
 //  /* USER CODE BEGIN I2C1_Init 1 */
-//////////////////////////
+//////////////////////////////
 //  /* USER CODE END I2C1_Init 1 */
 //  hi2c1.Instance = I2C1;
 //  hi2c1.Init.ClockSpeed = 100000;
@@ -295,7 +295,7 @@ int main(void)
 //    Error_Handler();
 //  }
 //  /* USER CODE BEGIN I2C1_Init 2 */
-//////////////////////////
+//////////////////////////////
 //  /* USER CODE END I2C1_Init 2 */
 //
 //}
@@ -309,11 +309,11 @@ int main(void)
 //{
 //
 //  /* USER CODE BEGIN UART4_Init 0 */
-////////////////////
+////////////////////////
 //  /* USER CODE END UART4_Init 0 */
 //
 //  /* USER CODE BEGIN UART4_Init 1 */
-////////////////////
+////////////////////////
 //  /* USER CODE END UART4_Init 1 */
 //  huart4.Instance = UART4;
 //  huart4.Init.BaudRate = 115200;
@@ -328,7 +328,7 @@ int main(void)
 //    Error_Handler();
 //  }
 //  /* USER CODE BEGIN UART4_Init 2 */
-////////////////////
+////////////////////////
 //  /* USER CODE END UART4_Init 2 */
 //
 //}
@@ -342,11 +342,11 @@ int main(void)
 //{
 //
 //  /* USER CODE BEGIN USART1_Init 0 */
-//////////////////
+//////////////////////
 //  /* USER CODE END USART1_Init 0 */
 //
 //  /* USER CODE BEGIN USART1_Init 1 */
-//////////////////
+//////////////////////
 //  /* USER CODE END USART1_Init 1 */
 //  huart1.Instance = USART1;
 //  huart1.Init.BaudRate = 115200;
@@ -361,7 +361,7 @@ int main(void)
 //    Error_Handler();
 //  }
 //  /* USER CODE BEGIN USART1_Init 2 */
-//////////////////
+//////////////////////
 //  /* USER CODE END USART1_Init 2 */
 //
 //}
@@ -375,11 +375,11 @@ int main(void)
 //{
 //
 //  /* USER CODE BEGIN USART3_Init 0 */
-////////////////////////
+////////////////////////////
 //  /* USER CODE END USART3_Init 0 */
 //
 //  /* USER CODE BEGIN USART3_Init 1 */
-////////////////////////
+////////////////////////////
 //  /* USER CODE END USART3_Init 1 */
 //  huart3.Instance = USART3;
 //  huart3.Init.BaudRate = 115200;
@@ -394,7 +394,7 @@ int main(void)
 //    Error_Handler();
 //  }
 //  /* USER CODE BEGIN USART3_Init 2 */
-////////////////////////
+////////////////////////////
 //  /* USER CODE END USART3_Init 2 */
 //
 //}
@@ -406,33 +406,27 @@ int main(void)
 //  */
 //static void MX_GPIO_Init(void)
 //{
-//  GPIO_InitTypeDef GPIO_InitStruct = {0};
 ///* USER CODE BEGIN MX_GPIO_Init_1 */
 ///* USER CODE END MX_GPIO_Init_1 */
 //
 //  /* GPIO Ports Clock Enable */
+//  __HAL_RCC_GPIOH_CLK_ENABLE();
 //  __HAL_RCC_GPIOC_CLK_ENABLE();
 //  __HAL_RCC_GPIOA_CLK_ENABLE();
 //  __HAL_RCC_GPIOB_CLK_ENABLE();
 //
-//  /*Configure GPIO pins : PB2 PB3 PB4 PB5 */
-//  GPIO_InitStruct.Pin = GPIO_PIN_2|GPIO_PIN_3|GPIO_PIN_4|GPIO_PIN_5;
-//  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-//  GPIO_InitStruct.Pull = GPIO_NOPULL;
-//  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-//
 ///* USER CODE BEGIN MX_GPIO_Init_2 */
 ///* USER CODE END MX_GPIO_Init_2 */
 //}
-//
-///* USER CODE BEGIN 4 */
+
+/* USER CODE BEGIN 4 */
 ////////
-///* USER CODE END 4 */
-//
-///**
-//  * @brief  This function is executed in case of error occurrence.
-//  * @retval None
-//  */
+/* USER CODE END 4 */
+
+/**
+  * @brief  This function is executed in case of error occurrence.
+  * @retval None
+  */
 void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */

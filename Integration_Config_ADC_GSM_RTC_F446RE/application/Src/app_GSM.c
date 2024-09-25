@@ -27,7 +27,7 @@ UART_HandleTypeDef huart2;
 
 void DataToGsm(struct data *d)
 {
-	uint8_t sec=d->seconds;
+	unsigned char sec=d->seconds;
 		//	DataToCloud(d1->time,d1->CH1,d1->CH2,d1->CH3,d1->CH4,d1->D1,d1->D2,d1->D3,d1->D4);
 	sprintf((char*)buffer_Time,"%02d:%02d:%02d",d->hour,d->minutes,d->seconds);
 	sprintf((char*)buffer_Date,"%02d/%02d/%02d",d->dayofmonth,d->month,d->year);

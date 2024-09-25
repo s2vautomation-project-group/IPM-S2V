@@ -10,9 +10,9 @@
 
 struct data
 {
-	char seconds;
-	char minutes;
-	char hour;
+	unsigned char seconds;
+	unsigned char minutes;
+	unsigned char hour;
 	char dayofweek;
 	char dayofmonth;
 	char month;
@@ -31,6 +31,8 @@ struct data
 	char Status2[10];
 	char Status3[10];
 	char Status4[10];
+	char arr1[10];
+	char arr2[10];
 };
 
 extern struct data d;

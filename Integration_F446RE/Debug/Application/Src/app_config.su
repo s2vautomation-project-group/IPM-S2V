@@ -1,0 +1,7 @@
+../Application/Src/app_config.c:31:6:Configurator	8	static
+../Application/Src/app_config.c:61:6:clear_buffer	8	static
+../Application/Src/app_config.c:72:6:set_output	16	static
+../Application/Src/app_config.c:96:6:reset_output	16	static
+../Application/Src/app_config.c:119:6:read_pinstatus	16	static
+../Application/Src/app_config.c:141:6:extract_data	8	static
+../Application/Src/app_config.c:185:6:pin_config	32	static,ignoring_inline_asm

@@ -1,0 +1,2 @@
+com_terminal.c:21:6:uart3_tx	1
+com_terminal.c:28:6:USER_USART3_UART_Init	2
