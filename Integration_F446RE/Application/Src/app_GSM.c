@@ -79,7 +79,7 @@ void DataToGsm(struct data *d)
 //	DataToCloud(buffer_Time,buffer_Date,d->CH1,d->CH2,d->CH3,d->CH4,d->Status1,d->Status2,d->Status3,d->Status4);
 
 
-	if(sec==59||sec==58)
+	if(sec==59)
 	{
 		count=count+1;
 

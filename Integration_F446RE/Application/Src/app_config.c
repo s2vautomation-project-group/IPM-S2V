@@ -49,10 +49,11 @@ void Configurator()
 	}
 	reset_output(&d);
 	set_output(&d);
+
 	//           		HAL_UART_Transmit(&huart2, (uint8_t*)d.GPIO, 4, HAL_MAX_DELAY);
 
 	read_pinstatus(&d);
-	//status_transmit();
+	// status_transmit();
 	//DataTOgsm(d);
 
 
@@ -73,22 +74,22 @@ void set_output(struct data *d)
 {
 	if(config[0] == 0)
 	{
-		d->GPIO[0] = write_gpio(GPIOA,GPIO_PIN_13, PIN_SET);
+		d->GPIO[0] = write_gpio(GPIOB,GPIO_PIN_2, PIN_SET);
 	}
 
 	if(config[1] == 0)
 	{
-		d->GPIO[1] = write_gpio(GPIOA,GPIO_PIN_14, PIN_SET);
+		d->GPIO[1] = write_gpio(GPIOC,GPIO_PIN_1, PIN_SET);
 	}
 
 	if(config[2] == 0)
 	{
-		d->GPIO[2] = write_gpio(GPIOC,GPIO_PIN_13, PIN_SET);
+		d->GPIO[2] = write_gpio(GPIOB,GPIO_PIN_4, PIN_SET);
 	}
 
 	if(config[3] == 0)
 	{
-		d->GPIO[3] = write_gpio(GPIOC,GPIO_PIN_14, PIN_SET);
+		d->GPIO[3] = write_gpio(GPIOB,GPIO_PIN_5, PIN_SET);
 	}
 	//	HAL_UART_Transmit(&huart2, (uint8_t *)d.GPIO, 4,1000);
 }
@@ -97,22 +98,22 @@ void reset_output(struct data *d1)
 {
 	if(config[0] == 0)
 	{
-		d1->GPIO[0] = write_gpio(GPIOA,GPIO_PIN_13, PIN_RESET);
+		d1->GPIO[0] = write_gpio(GPIOB,GPIO_PIN_2, PIN_RESET);
 	}
 
 	if(config[1] == 0)
 	{
-		d1->GPIO[1]=write_gpio(GPIOA,GPIO_PIN_14, PIN_RESET);
+		d1->GPIO[1]=write_gpio(GPIOC,GPIO_PIN_1, PIN_RESET);
 	}
 
 	if(config[2] == 0)
 	{
-		d1->GPIO[2] = write_gpio(GPIOC,GPIO_PIN_13, PIN_RESET);
+		d1->GPIO[2] = write_gpio(GPIOB,GPIO_PIN_4, PIN_RESET);
 	}
 
 	if(config[3] == 0)
 	{
-		d1->GPIO[3] = write_gpio(GPIOC,GPIO_PIN_14, PIN_RESET);
+		d1->GPIO[3] = write_gpio(GPIOB,GPIO_PIN_5, PIN_RESET);
 	}
 }
 
@@ -120,19 +121,19 @@ void read_pinstatus(struct data *d2)
 {
 	if(config[0]==1)
 	{
-		d2->GPIO[0]=read_gpio( GPIOA,GPIO_PIN_13);
+		d2->GPIO[0]=read_gpio( GPIOB,GPIO_PIN_2);
 	}
 	if(config[1]==1)
 	{
-		d2->GPIO[1]=read_gpio( GPIOA,GPIO_PIN_14);
+		d2->GPIO[1]=read_gpio(GPIOC,GPIO_PIN_1);
 	}
 	if(config[2]==1)
 	{
-		d2->GPIO[2]=read_gpio( GPIOC,GPIO_PIN_13);
+		d2->GPIO[2]=read_gpio( GPIOB,GPIO_PIN_4);
 	}
 	if(config[3]==1)
 	{
-		d2->GPIO[3]=read_gpio( GPIOC,GPIO_PIN_14);
+		d2->GPIO[3]=read_gpio( GPIOB,GPIO_PIN_5);
 	}
 	//	 return d->GPIO;
 }
@@ -168,39 +169,26 @@ void extract_data()
 
 }
 
-//void DataTOgsm(struct status d)
-//{
-//	gpiostatus(d);
-//}
-
-//void gpiostatus(struct status d)
-//{
-//	 s[0]=d.gpio[0];
-//	 s[1]=d.gpio[1];
-//	 s[2]=d.gpio[2];
-//	 s[3]=d.gpio[3];
-//	 s[4]=d.SCANTIME;
-//}
 
 void pin_config()
 {
 
-	if(strcmp(arr1,"A13")==0)
+	if(strcmp(arr1,"B2")==0)
 	{
 		switch_val=1;
 	}
 
-	else if(strcmp(arr1,"A14")==0)
+	else if(strcmp(arr1,"C1")==0)
 	{
 		switch_val=2;
 	}
 
-	else if(strcmp(arr1,"C13")==0)
+	else if(strcmp(arr1,"B4")==0)
 	{
 		switch_val=3;
 	}
 
-	else if(strcmp(arr1,"C14")==0)
+	else if(strcmp(arr1,"B5")==0)
 	{
 		switch_val=4;
 	}
@@ -219,6 +207,7 @@ void pin_config()
 	{
 		switch_val=7;
 	}
+
 	else if(strcmp(arr1,"SCANTIME")==0)
 	{
 		switch_val=8;
@@ -231,13 +220,13 @@ void pin_config()
 	case 1:
 		if(strcmp(arr2,"OUTPUT")==0)
 		{
-			user_GPIO_Init(GPIOA,GPIO_PIN_13,OUTPUT);
+			user_GPIO_Init(GPIOB,GPIO_PIN_2,OUTPUT);
 			config[0] = 0;
 		}
 
 		else if(strcmp(arr2,"INPUT")==0)
 		{
-			user_GPIO_Init(GPIOA,GPIO_PIN_13,INPUT);
+			user_GPIO_Init(GPIOB,GPIO_PIN_2,INPUT);
 			config[0] = 1;
 		}
 		break;
@@ -245,13 +234,13 @@ void pin_config()
 	case 2:
 		if(strcmp(arr2,"OUTPUT")==0)
 		{
-			user_GPIO_Init(GPIOA,GPIO_PIN_14,OUTPUT);
+			user_GPIO_Init(GPIOC,GPIO_PIN_1,OUTPUT);
 			config[1]=0;
 		}
 
 		else if(strcmp(arr2,"INPUT")==0)
 		{
-			user_GPIO_Init(GPIOA,GPIO_PIN_14,INPUT);
+			user_GPIO_Init(GPIOC,GPIO_PIN_1,INPUT);
 			config[1]=1;
 		}
 		break;
@@ -259,13 +248,13 @@ void pin_config()
 	case 3:
 		if(strcmp(arr2,"OUTPUT")==0)
 		{
-			user_GPIO_Init(GPIOC,GPIO_PIN_13,OUTPUT);
+			user_GPIO_Init(GPIOB,GPIO_PIN_4,OUTPUT);
 			config[2]=0;
 		}
 
 		else if(strcmp(arr2,"INPUT")==0)
 		{
-			user_GPIO_Init(GPIOC,GPIO_PIN_13,INPUT);
+			user_GPIO_Init(GPIOB,GPIO_PIN_4,INPUT);
 			config[2]=1;
 		}
 
@@ -274,13 +263,13 @@ void pin_config()
 	case 4:
 		if(strcmp(arr2,"OUTPUT")==0)
 		{
-			user_GPIO_Init(GPIOC,GPIO_PIN_14,OUTPUT);
+			user_GPIO_Init(GPIOB,GPIO_PIN_5,OUTPUT);
 			config[3]=0;
 		}
 
 		else if(strcmp(arr2,"INPUT")==0)
 		{
-			user_GPIO_Init(GPIOC,GPIO_PIN_14,INPUT);
+			user_GPIO_Init(GPIOB,GPIO_PIN_5,INPUT);
 			config[3]=1;
 		}
 		break;
@@ -344,14 +333,14 @@ void pin_config()
 		// Get the third token and convert to integer
 		if (token != NULL)
 		{
-
 			d.seconds = atoi(token);
 		}
 		//				 Set_Time(time);
 
-		set_time(d.seconds,d.minutes,d.hour,3,0,0,0);
+		set_time(d.seconds,d.minutes,d.hour,1,0,0,0);
 
 		break;
+
 	case 7:
 
 		token = strtok(arr2, ":");
@@ -378,7 +367,7 @@ void pin_config()
 		//				 Set_Time(time);
 
 		set_time(d.seconds,d.minutes,d.hour,1,d.dayofmonth,d.month,d.year);
-		break;
+
 
 	case 8:
 		d.scan_time = (uint8_t)atoi(arr2);
