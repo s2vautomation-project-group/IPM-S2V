@@ -1,0 +1,5 @@
+../Application_layer/Src/app_EEPROM.c:18:6:convert_data_to_eeprom_data	16	static
+../Application_layer/Src/app_EEPROM.c:39:6:store_data_in_eeprom	96	static
+../Application_layer/Src/app_EEPROM.c:62:6:read_data_from_eeprom	96	static
+../Application_layer/Src/app_EEPROM.c:70:6:CheckAndStoreData	80	static
+../Application_layer/Src/app_EEPROM.c:82:6:Application	80	static
