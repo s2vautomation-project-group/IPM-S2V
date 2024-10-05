@@ -1,0 +1,16 @@
+../common_layer/Src/Cqueue.c:19:1:Init_UartQueue	16	static
+../common_layer/Src/Cqueue.c:19:1:Insert_UartQueue	16	static
+../common_layer/Src/Cqueue.c:19:1:Remove_UartQueue	16	static
+../common_layer/Src/Cqueue.c:19:1:Peek_UartQueue	32	static
+../common_layer/Src/Cqueue.c:19:1:Is_UartQueueFull	16	static
+../common_layer/Src/Cqueue.c:19:1:Is_UartQueueEmpty	16	static
+../common_layer/Src/Cqueue.c:19:1:UartQueue_SpaceAvailable	16	static
+../common_layer/Src/Cqueue.c:19:1:UartQueue_FormQueueVar	32	static
+../common_layer/Src/Cqueue.c:21:1:Init_UsartQueue	16	static
+../common_layer/Src/Cqueue.c:21:1:Insert_UsartQueue	16	static
+../common_layer/Src/Cqueue.c:21:1:Remove_UsartQueue	16	static
+../common_layer/Src/Cqueue.c:21:1:Peek_UsartQueue	32	static
+../common_layer/Src/Cqueue.c:21:1:Is_UsartQueueFull	16	static
+../common_layer/Src/Cqueue.c:21:1:Is_UsartQueueEmpty	16	static
+../common_layer/Src/Cqueue.c:21:1:UsartQueue_SpaceAvailable	16	static
+../common_layer/Src/Cqueue.c:21:1:UsartQueue_FormQueueVar	32	static
