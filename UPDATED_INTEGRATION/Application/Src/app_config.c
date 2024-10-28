@@ -197,20 +197,24 @@ void pin_config()
 	{
 		switch_val=5;
 	}
-
-	else if(strcmp(arr1,"RTC")==0)
+	else if(strcmp(arr1,"DISABLE")==0)
 	{
 		switch_val=6;
 	}
 
-	else if(strcmp(arr1,"DATE")==0)
+	else if(strcmp(arr1,"TIME")==0)
 	{
 		switch_val=7;
 	}
 
-	else if(strcmp(arr1,"SCANTIME")==0)
+	else if(strcmp(arr1,"DATE")==0)
 	{
 		switch_val=8;
+	}
+
+	else if(strcmp(arr1,"SCANTIME")==0)
+	{
+		switch_val=9;
 	}
 
 
@@ -299,20 +303,47 @@ void pin_config()
 			adcChnlChecker[3] = 1;
 		}
 
-		else if(strcmp(arr2,"DB2")==0)
-		{
-			adcChnlChecker[0] = 0;
-			adcChnlChecker[1] = 0;
-			adcChnlChecker[2] = 0;
-			adcChnlChecker[3] = 0;
-		}
-		else
-		{
-			__NOP();
-		}
+//		else if(strcmp(arr2,"DB2")==0)
+//		{
+//			adcChnlChecker[0] = 0;
+//			adcChnlChecker[1] = 0;
+//			adcChnlChecker[2] = 0;
+//			adcChnlChecker[3] = 0;
+//		}
+//		else
+//		{
+//			__NOP();
+//		}
 		break;
 
 	case 6:
+		if(strcmp(arr2,"CH1")==0)
+		{
+			ADC_select_CH1();
+			adcChnlChecker[0] = 0;
+		}
+
+		else if(strcmp(arr2,"CH2")==0)
+		{
+			ADC_select_CH2();
+			adcChnlChecker[1] = 0;
+		}
+
+		else if(strcmp(arr2,"CH3")==0)
+		{
+			ADC_select_CH3();
+			adcChnlChecker[2] = 0;
+		}
+
+		else if(strcmp(arr2,"CH4")==0)
+		{
+			ADC_select_CH4();
+			adcChnlChecker[3] = 0;
+		}
+
+        break;
+
+	case 7:
 
 		token = strtok(arr2, ":");
 
@@ -341,7 +372,7 @@ void pin_config()
 
 		break;
 
-	case 7:
+	case 8:
 
 		token = strtok(arr2, ":");
 
@@ -369,7 +400,7 @@ void pin_config()
 		set_time(d.seconds,d.minutes,d.hour,1,d.dayofmonth,d.month,d.year);
 
 
-	case 8:
+	case 9:
 		d.scan_time = (uint8_t)atoi(arr2);
 		break;
 

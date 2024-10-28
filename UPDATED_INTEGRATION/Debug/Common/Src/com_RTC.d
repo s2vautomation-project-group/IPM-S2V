@@ -30,7 +30,7 @@ Common/Src/com_RTC.o: ../Common/Src/com_RTC.c ../Core/Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
- C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/N_RTC/Application/Inc/app_rtc.h \
+ E:/GitHub_F446RE/IPM-S2V/UPDATED_INTEGRATION_F446RE/UPDATED_INTEGRATION/Application/Inc/app_rtc.h \
  ../Core/Inc/data.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
@@ -64,5 +64,5 @@ Common/Src/com_RTC.o: ../Common/Src/com_RTC.c ../Core/Inc/main.h \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
-C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/N_RTC/Application/Inc/app_rtc.h:
+E:/GitHub_F446RE/IPM-S2V/UPDATED_INTEGRATION_F446RE/UPDATED_INTEGRATION/Application/Inc/app_rtc.h:
 ../Core/Inc/data.h:

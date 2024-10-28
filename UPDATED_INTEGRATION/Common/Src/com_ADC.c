@@ -13,10 +13,10 @@
 #include"com_adc.h"
 #include"app_adc.h"
 #include "app_config.h"
-
+#include <string.h>
 uint32_t ss[4];
 
-
+extern char arr1[10];
 ADC_ChannelConfTypeDef sConfig = {0};
 extern ADC_HandleTypeDef hadc1;
 //void USER_SystemClock_Config(void)
@@ -167,20 +167,19 @@ void USER_GPIO_Init(void)
 
 void ADC_select_CH1(void)
 {
-//	ADC_ChannelConfTypeDef sConfig = {0};
-//	sConfig.Channel = ADC_CHANNEL_5;
-//	sConfig.Rank = ADC_REGULAR_RANK_1;
-//	sConfig.SamplingTime = ADC_SAMPLETIME_92CYCLES_5;
-//	sConfig.SingleDiff = ADC_SINGLE_ENDED;
-//	sConfig.OffsetNumber = ADC_OFFSET_NONE;
-//	sConfig.Offset = 0;
-//	if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
-//	{
-//		Error_Handler();
-//	}
+	if(strcmp(arr1,"DISABLE")==0)
+	{
+		sConfig.Channel = ADC_CHANNEL_5;
+		sConfig.Rank = 0;
+		sConfig.SamplingTime = ADC_SAMPLETIME_480CYCLES;
+		if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+		{
+			Error_Handler();
+		}
+	}
 
-//	  ADC_ChannelConfTypeDef sConfig = {0};
-
+	else
+	{
 	sConfig.Channel = ADC_CHANNEL_5;
 		  sConfig.Rank = 1;
 		  sConfig.SamplingTime = ADC_SAMPLETIME_480CYCLES;
@@ -188,68 +187,76 @@ void ADC_select_CH1(void)
 		  {
 		    Error_Handler();
 		  }
+	}
 }
 
 void ADC_select_CH2(void)
 {
-//	ADC_ChannelConfTypeDef sConfig = {0};
-//	sConfig.Channel = ADC_CHANNEL_6;
-//	sConfig.Rank = ADC_REGULAR_RANK_1;
-//	sConfig.SamplingTime = ADC_SAMPLETIME_247CYCLES_5;
-//	sConfig.SingleDiff = ADC_SINGLE_ENDED;
-//	sConfig.OffsetNumber = ADC_OFFSET_NONE;
-//	sConfig.Offset = 0;
-//	if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
-//	{
-//		Error_Handler();
-//	}
-	 sConfig.Channel = ADC_CHANNEL_6;
+	if(strcmp(arr1,"DISABLE")==0)
+	{
+		sConfig.Channel = ADC_CHANNEL_6;
+		sConfig.Rank = 0;
+		sConfig.SamplingTime = ADC_SAMPLETIME_480CYCLES;
+		if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+		{
+			Error_Handler();
+		}
+	}
+
+	else
+	{
+	sConfig.Channel = ADC_CHANNEL_6;
 		  sConfig.Rank = 1;
 		  sConfig.SamplingTime = ADC_SAMPLETIME_480CYCLES;
 		  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
 		  {
 		    Error_Handler();
 		  }
+	}
 }
+
 
 void ADC_select_CH3(void)
 {
-//	ADC_ChannelConfTypeDef sConfig = {0};
-//	sConfig.Channel = ADC_CHANNEL_9;
-//	sConfig.Rank = ADC_REGULAR_RANK_1;
-//	sConfig.SamplingTime = ADC_SAMPLETIME_247CYCLES_5;
-//	sConfig.SingleDiff = ADC_SINGLE_ENDED;
-//	sConfig.OffsetNumber = ADC_OFFSET_NONE;
-//	sConfig.Offset = 0;
-//	if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
-//	{
-//		Error_Handler();
-//	}
+	if(strcmp(arr1,"DISABLE")==0)
+	{
+		sConfig.Channel = ADC_CHANNEL_9;
+		sConfig.Rank = 0;
+		sConfig.SamplingTime = ADC_SAMPLETIME_480CYCLES;
+		if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+		{
+			Error_Handler();
+		}
+	}
 
-
-	  sConfig.Channel = ADC_CHANNEL_9;
+	else
+	{
+	sConfig.Channel = ADC_CHANNEL_9;
 		  sConfig.Rank = 1;
 		  sConfig.SamplingTime = ADC_SAMPLETIME_480CYCLES;
 		  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
 		  {
 		    Error_Handler();
 		  }
+	}
 }
+
 
 void ADC_select_CH4(void)
 {
-//	ADC_ChannelConfTypeDef sConfig = {0};
-//	sConfig.Channel = ADC_CHANNEL_10;
-//	sConfig.Rank = ADC_REGULAR_RANK_1;
-//	sConfig.SamplingTime = ADC_SAMPLETIME_247CYCLES_5;
-//	sConfig.SingleDiff = ADC_SINGLE_ENDED;
-//	sConfig.OffsetNumber = ADC_OFFSET_NONE;
-//	sConfig.Offset = 0;
-//	if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
-//	{
-//		Error_Handler();
-//	}
+	if(strcmp(arr1,"DISABLE")==0)
+	{
+		sConfig.Channel = ADC_CHANNEL_10;
+		sConfig.Rank = 0;
+		sConfig.SamplingTime = ADC_SAMPLETIME_480CYCLES;
+		if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+		{
+			Error_Handler();
+		}
+	}
 
+	else
+	{
 	sConfig.Channel = ADC_CHANNEL_10;
 		  sConfig.Rank = 1;
 		  sConfig.SamplingTime = ADC_SAMPLETIME_480CYCLES;
@@ -257,6 +264,7 @@ void ADC_select_CH4(void)
 		  {
 		    Error_Handler();
 		  }
+	}
 }
 
 

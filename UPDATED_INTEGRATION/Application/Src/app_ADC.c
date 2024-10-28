@@ -36,16 +36,18 @@ void ADC_handler(struct data *d)
 {
 	if(adcChnlChecker[0] == 1)
 	{
+
 		ADC_select_CH1();
 		adc_start();
 		adc_conversion();
 		d->adc1_value = voltage_cal();
 		adc_stop();
 	}
-	else
+	else if (adcChnlChecker[0] == 0)
 	{
-		__NOP();
+		ADC_select_CH1();
 	}
+
 	if(adcChnlChecker[1] == 1)
 	{
 		ADC_select_CH2();
@@ -54,10 +56,11 @@ void ADC_handler(struct data *d)
 		d->adc2_value = voltage_cal();
 		adc_stop();
 	}
-	else
+	else if (adcChnlChecker[1] == 0)
 	{
-		__NOP();
+		ADC_select_CH2();
 	}
+
 	if(adcChnlChecker[2] == 1)
 	{
 		ADC_select_CH3();
@@ -66,10 +69,11 @@ void ADC_handler(struct data *d)
 		d->adc3_value = voltage_cal();
 		adc_stop();
 	}
-	else
+	else if (adcChnlChecker[2] == 0)
 	{
-		__NOP();
+		ADC_select_CH3();
 	}
+
 	if(adcChnlChecker[3] == 1)
 	{
 		ADC_select_CH4();
@@ -78,9 +82,9 @@ void ADC_handler(struct data *d)
 		d->adc4_value = voltage_cal();
 		adc_stop();
 	}
-	else
+	else if (adcChnlChecker[3] == 0)
 	{
-		__NOP();
+		ADC_select_CH4();
 	}
 //	adc_stop();
 

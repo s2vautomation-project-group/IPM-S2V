@@ -31,8 +31,8 @@ Application/Src/app_terminal.o: ../Application/Src/app_terminal.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
  ../Core/Inc/data.h \
- C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/N_RTC/Application/Inc/app_terminal.h \
- C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/N_RTC/Common/Inc/com_terminal.h
+ E:/GitHub_F446RE/IPM-S2V/UPDATED_INTEGRATION_F446RE/UPDATED_INTEGRATION/Application/Inc/app_terminal.h \
+ E:/GitHub_F446RE/IPM-S2V/UPDATED_INTEGRATION_F446RE/UPDATED_INTEGRATION/Common/Inc/com_terminal.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
@@ -66,5 +66,5 @@ Application/Src/app_terminal.o: ../Application/Src/app_terminal.c \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 ../Core/Inc/data.h:
-C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/N_RTC/Application/Inc/app_terminal.h:
-C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/N_RTC/Common/Inc/com_terminal.h:
+E:/GitHub_F446RE/IPM-S2V/UPDATED_INTEGRATION_F446RE/UPDATED_INTEGRATION/Application/Inc/app_terminal.h:
+E:/GitHub_F446RE/IPM-S2V/UPDATED_INTEGRATION_F446RE/UPDATED_INTEGRATION/Common/Inc/com_terminal.h:

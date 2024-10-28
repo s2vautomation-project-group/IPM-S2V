@@ -30,19 +30,19 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
- C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/N_RTC/Common/Inc/com_config.h \
- C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/N_RTC/Application/Inc/app_config.h \
+ E:/GitHub_F446RE/IPM-S2V/UPDATED_INTEGRATION_F446RE/UPDATED_INTEGRATION/Common/Inc/com_config.h \
+ E:/GitHub_F446RE/IPM-S2V/UPDATED_INTEGRATION_F446RE/UPDATED_INTEGRATION/Application/Inc/app_config.h \
  ../Core/Inc/data.h \
- C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/N_RTC/Application/Inc/app_RTC.h \
- C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/N_RTC/Common/Inc/com_RTC.h \
- C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/N_RTC/Application/Inc/app_GSM.h \
- C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/N_RTC/Common/Inc/Com_GSM.h \
- C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/N_RTC/Common/Inc/com_GSM.h \
- C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/N_RTC/Application/Inc/app_ADC.h \
- C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/N_RTC/Common/Inc/com_ADC.h \
- C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/N_RTC/Common/Inc/com_terminal.h \
- C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/N_RTC/Application/Inc/app_terminal.h \
- C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/N_RTC/Application/Inc/IPM.h
+ E:/GitHub_F446RE/IPM-S2V/UPDATED_INTEGRATION_F446RE/UPDATED_INTEGRATION/Application/Inc/app_RTC.h \
+ E:/GitHub_F446RE/IPM-S2V/UPDATED_INTEGRATION_F446RE/UPDATED_INTEGRATION/Common/Inc/com_RTC.h \
+ E:/GitHub_F446RE/IPM-S2V/UPDATED_INTEGRATION_F446RE/UPDATED_INTEGRATION/Application/Inc/app_GSM.h \
+ E:/GitHub_F446RE/IPM-S2V/UPDATED_INTEGRATION_F446RE/UPDATED_INTEGRATION/Common/Inc/Com_GSM.h \
+ E:/GitHub_F446RE/IPM-S2V/UPDATED_INTEGRATION_F446RE/UPDATED_INTEGRATION/Common/Inc/com_GSM.h \
+ E:/GitHub_F446RE/IPM-S2V/UPDATED_INTEGRATION_F446RE/UPDATED_INTEGRATION/Application/Inc/app_ADC.h \
+ E:/GitHub_F446RE/IPM-S2V/UPDATED_INTEGRATION_F446RE/UPDATED_INTEGRATION/Common/Inc/com_ADC.h \
+ E:/GitHub_F446RE/IPM-S2V/UPDATED_INTEGRATION_F446RE/UPDATED_INTEGRATION/Common/Inc/com_terminal.h \
+ E:/GitHub_F446RE/IPM-S2V/UPDATED_INTEGRATION_F446RE/UPDATED_INTEGRATION/Application/Inc/app_terminal.h \
+ E:/GitHub_F446RE/IPM-S2V/UPDATED_INTEGRATION_F446RE/UPDATED_INTEGRATION/Application/Inc/IPM.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
@@ -75,16 +75,16 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
-C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/N_RTC/Common/Inc/com_config.h:
-C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/N_RTC/Application/Inc/app_config.h:
+E:/GitHub_F446RE/IPM-S2V/UPDATED_INTEGRATION_F446RE/UPDATED_INTEGRATION/Common/Inc/com_config.h:
+E:/GitHub_F446RE/IPM-S2V/UPDATED_INTEGRATION_F446RE/UPDATED_INTEGRATION/Application/Inc/app_config.h:
 ../Core/Inc/data.h:
-C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/N_RTC/Application/Inc/app_RTC.h:
-C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/N_RTC/Common/Inc/com_RTC.h:
-C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/N_RTC/Application/Inc/app_GSM.h:
-C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/N_RTC/Common/Inc/Com_GSM.h:
-C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/N_RTC/Common/Inc/com_GSM.h:
-C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/N_RTC/Application/Inc/app_ADC.h:
-C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/N_RTC/Common/Inc/com_ADC.h:
-C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/N_RTC/Common/Inc/com_terminal.h:
-C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/N_RTC/Application/Inc/app_terminal.h:
-C:/Users/KAVYA/STM32CubeIDE/workspace_1.12.0/N_RTC/Application/Inc/IPM.h:
+E:/GitHub_F446RE/IPM-S2V/UPDATED_INTEGRATION_F446RE/UPDATED_INTEGRATION/Application/Inc/app_RTC.h:
+E:/GitHub_F446RE/IPM-S2V/UPDATED_INTEGRATION_F446RE/UPDATED_INTEGRATION/Common/Inc/com_RTC.h:
+E:/GitHub_F446RE/IPM-S2V/UPDATED_INTEGRATION_F446RE/UPDATED_INTEGRATION/Application/Inc/app_GSM.h:
+E:/GitHub_F446RE/IPM-S2V/UPDATED_INTEGRATION_F446RE/UPDATED_INTEGRATION/Common/Inc/Com_GSM.h:
+E:/GitHub_F446RE/IPM-S2V/UPDATED_INTEGRATION_F446RE/UPDATED_INTEGRATION/Common/Inc/com_GSM.h:
+E:/GitHub_F446RE/IPM-S2V/UPDATED_INTEGRATION_F446RE/UPDATED_INTEGRATION/Application/Inc/app_ADC.h:
+E:/GitHub_F446RE/IPM-S2V/UPDATED_INTEGRATION_F446RE/UPDATED_INTEGRATION/Common/Inc/com_ADC.h:
+E:/GitHub_F446RE/IPM-S2V/UPDATED_INTEGRATION_F446RE/UPDATED_INTEGRATION/Common/Inc/com_terminal.h:
+E:/GitHub_F446RE/IPM-S2V/UPDATED_INTEGRATION_F446RE/UPDATED_INTEGRATION/Application/Inc/app_terminal.h:
+E:/GitHub_F446RE/IPM-S2V/UPDATED_INTEGRATION_F446RE/UPDATED_INTEGRATION/Application/Inc/IPM.h:
