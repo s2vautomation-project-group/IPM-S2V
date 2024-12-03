@@ -1,2 +1,0 @@
-../application_layer/Src/app_ADC.c:29:7:voltage_cal	8	static
-../application_layer/Src/app_ADC.c:35:6:ADC_handler	16	static,ignoring_inline_asm

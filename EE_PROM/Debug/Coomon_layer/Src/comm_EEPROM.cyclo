@@ -1,5 +1,0 @@
-comm_EEPROM.c:14:6:User_SystemClock_Config	4
-comm_EEPROM.c:75:6:User_I2C1_Init	4
-comm_EEPROM.c:123:6:USER_GPIO_Init	1
-comm_EEPROM.c:147:19:eeprom_write	1
-comm_EEPROM.c:155:19:eeprom_read	1

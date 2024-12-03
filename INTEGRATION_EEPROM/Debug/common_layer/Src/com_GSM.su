@@ -1,5 +1,0 @@
-../common_layer/Src/com_GSM.c:33:6:UART4_Init	8	static
-../common_layer/Src/com_GSM.c:66:6:GsmCommands	16	static
-../common_layer/Src/com_GSM.c:76:6:Gsm_Init	8	static
-../common_layer/Src/com_GSM.c:94:6:DataToCloud	616	static
-../common_layer/Src/com_GSM.c:138:7:url_encode	32	static

@@ -1,5 +1,0 @@
-../Coomon_layer/Src/comm_EEPROM.c:14:6:User_SystemClock_Config	96	static
-../Coomon_layer/Src/comm_EEPROM.c:75:6:User_I2C1_Init	8	static
-../Coomon_layer/Src/comm_EEPROM.c:123:6:USER_GPIO_Init	16	static
-../Coomon_layer/Src/comm_EEPROM.c:147:19:eeprom_write	40	static
-../Coomon_layer/Src/comm_EEPROM.c:155:19:eeprom_read	32	static
