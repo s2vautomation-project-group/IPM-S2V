@@ -1,0 +1,10 @@
+com_ADC.c:78:6:USER_ADC1_Init	2
+com_ADC.c:153:6:USER_GPIO_Init	1
+com_ADC.c:168:6:ADC_select_CH1	4
+com_ADC.c:193:6:ADC_select_CH2	4
+com_ADC.c:219:6:ADC_select_CH3	4
+com_ADC.c:245:6:ADC_select_CH4	4
+com_ADC.c:297:6:adc_start	1
+com_ADC.c:302:6:adc_conversion	1
+com_ADC.c:307:10:adc_value	1
+com_ADC.c:312:6:adc_stop	1
