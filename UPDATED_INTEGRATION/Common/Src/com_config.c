@@ -9,13 +9,12 @@
 #include "com_config.h"
 #include "main.h"
 #include <string.h>
+#include "circular_queue.h"
 
 
 
-
-
-
-extern  char  tx_data[15];
+extern uint8_t rxBuffer;  // UART receive buffer
+//extern  char  tx_data[15];
 extern UART_HandleTypeDef huart1;
 GPIO_InitTypeDef GPIO_InitStruct = {0};
 uint8_t GPIO[4];
@@ -154,7 +153,7 @@ void SystemClock_Config(void)
 
 void data_receive()
  {
-	 if (HAL_UART_Receive(&huart1,(uint8_t *)tx_data,20,1000) == HAL_ERROR)
+	 if (HAL_UART_Receive_IT(&huart1, &rxBuffer,1) == HAL_ERROR)
 	 {
 			 Error_Handler();
 	 }

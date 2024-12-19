@@ -2,4 +2,4 @@
 ../Common/Src/com_GSM.c:66:6:GsmCommands	16	static
 ../Common/Src/com_GSM.c:76:6:Gsm_Init	8	static
 ../Common/Src/com_GSM.c:93:6:DataToCloud	616	static
-../Common/Src/com_GSM.c:137:7:url_encode	32	static
+../Common/Src/com_GSM.c:135:7:url_encode	32	static

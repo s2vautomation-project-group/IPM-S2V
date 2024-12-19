@@ -15,8 +15,10 @@
 #include "data.h"
 #include "main.h"
 #include <stdlib.h>
+#include "circular_queue.h"
+
 int switch_val=0;
-char tx_data[15];
+//char tx_data[15];
 UART_HandleTypeDef huart1;
 char arr1[10];
 char arr2[10];
@@ -27,42 +29,80 @@ char config[4];
 uint8_t s[4];
 extern struct data d;
 uint8_t adcChnlChecker[4];
+uint8_t rxBuffer;  // UART receive buffer
+CircularQueue rxQueue;// Circular queue for storing received data
+static char command[20];  // Temporary storage for a single command
 
 void Configurator()
 {
 	data_receive();
 
-	if (tx_data[0] != '\0')
-	{
-		flag = 1; // Set flag to indicate data has been received
-	}
-	else
-	{
-		flag=0;
-	}
+//	if (tx_data[0] != '\0')
+//	{
+//		flag = 1; // Set flag to indicate data has been received
+//	}
+//	else
+//	{
+//		flag=0;
+//	}
+//
+//	if (flag)
 
-	if (flag)
-	{
-		extract_data();
-		pin_config();
-		clear_buffer();
-	}
+	Process_Commands();
 	reset_output(&d);
 	set_output(&d);
-
-	//           		HAL_UART_Transmit(&huart2, (uint8_t*)d.GPIO, 4, HAL_MAX_DELAY);
-
 	read_pinstatus(&d);
-	// status_transmit();
-	//DataTOgsm(d);
-
-
 }
 
-void clear_buffer()
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
-	memset(tx_data,0,sizeof (tx_data));
+    if (huart->Instance == USART1)
+    {
+        // Enqueue received bytes into the circular queue
+
+            if (!CircularQueue_Enqueue(&rxQueue, rxBuffer))
+            {
+                // Handle queue overflow if necessary (optional)
+            }
+
+        // Restart UART reception for the next chunk of data
+        HAL_UART_Receive_IT(&huart1, &rxBuffer, 1);
+    }
 }
+
+void Process_Commands(void)
+{
+	    static uint8_t cmdIndex = 0;  // Persistent index to track the current command
+	    uint8_t byte;
+
+    while (!CircularQueue_IsEmpty(&rxQueue)) {
+        CircularQueue_Dequeue(&rxQueue, &byte);
+
+        // Add byte to the command
+        if (byte != ';') {
+            if (cmdIndex < sizeof(command) - 1) {
+                command[cmdIndex++] = byte;
+            } else {
+                // Handle command overflow (optional)
+                cmdIndex = 0;  // Reset on overflow
+            }
+        } else {
+            // Command completed when '\n' is received
+            command[cmdIndex] = '\0';  // Null-terminate the command
+            cmdIndex = 0;
+
+            // Process the command
+            extract_data(command);
+            pin_config();
+        }
+    }
+}
+
+//void clear_buffer()
+//{
+//	memset(tx_data,0,sizeof (tx_data));
+//}
 
 //void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 // {
@@ -139,9 +179,9 @@ void read_pinstatus(struct data *d2)
 }
 
 
-void extract_data()
+void extract_data(char* command)
 {
-	token = strtok(tx_data, ",");
+	token = strtok(command, ",");
 
 
 	if (token != NULL)

@@ -10,7 +10,8 @@ C_SRCS += \
 ../Application/Src/app_GSM.c \
 ../Application/Src/app_RTC.c \
 ../Application/Src/app_config.c \
-../Application/Src/app_terminal.c 
+../Application/Src/app_terminal.c \
+../Application/Src/circular_queue.c 
 
 OBJS += \
 ./Application/Src/IPM.o \
@@ -18,7 +19,8 @@ OBJS += \
 ./Application/Src/app_GSM.o \
 ./Application/Src/app_RTC.o \
 ./Application/Src/app_config.o \
-./Application/Src/app_terminal.o 
+./Application/Src/app_terminal.o \
+./Application/Src/circular_queue.o 
 
 C_DEPS += \
 ./Application/Src/IPM.d \
@@ -26,7 +28,8 @@ C_DEPS += \
 ./Application/Src/app_GSM.d \
 ./Application/Src/app_RTC.d \
 ./Application/Src/app_config.d \
-./Application/Src/app_terminal.d 
+./Application/Src/app_terminal.d \
+./Application/Src/circular_queue.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -36,7 +39,7 @@ Application/Src/%.o Application/Src/%.su Application/Src/%.cyclo: ../Application
 clean: clean-Application-2f-Src
 
 clean-Application-2f-Src:
-	-$(RM) ./Application/Src/IPM.cyclo ./Application/Src/IPM.d ./Application/Src/IPM.o ./Application/Src/IPM.su ./Application/Src/app_ADC.cyclo ./Application/Src/app_ADC.d ./Application/Src/app_ADC.o ./Application/Src/app_ADC.su ./Application/Src/app_GSM.cyclo ./Application/Src/app_GSM.d ./Application/Src/app_GSM.o ./Application/Src/app_GSM.su ./Application/Src/app_RTC.cyclo ./Application/Src/app_RTC.d ./Application/Src/app_RTC.o ./Application/Src/app_RTC.su ./Application/Src/app_config.cyclo ./Application/Src/app_config.d ./Application/Src/app_config.o ./Application/Src/app_config.su ./Application/Src/app_terminal.cyclo ./Application/Src/app_terminal.d ./Application/Src/app_terminal.o ./Application/Src/app_terminal.su
+	-$(RM) ./Application/Src/IPM.cyclo ./Application/Src/IPM.d ./Application/Src/IPM.o ./Application/Src/IPM.su ./Application/Src/app_ADC.cyclo ./Application/Src/app_ADC.d ./Application/Src/app_ADC.o ./Application/Src/app_ADC.su ./Application/Src/app_GSM.cyclo ./Application/Src/app_GSM.d ./Application/Src/app_GSM.o ./Application/Src/app_GSM.su ./Application/Src/app_RTC.cyclo ./Application/Src/app_RTC.d ./Application/Src/app_RTC.o ./Application/Src/app_RTC.su ./Application/Src/app_config.cyclo ./Application/Src/app_config.d ./Application/Src/app_config.o ./Application/Src/app_config.su ./Application/Src/app_terminal.cyclo ./Application/Src/app_terminal.d ./Application/Src/app_terminal.o ./Application/Src/app_terminal.su ./Application/Src/circular_queue.cyclo ./Application/Src/circular_queue.d ./Application/Src/circular_queue.o ./Application/Src/circular_queue.su
 
 .PHONY: clean-Application-2f-Src
 

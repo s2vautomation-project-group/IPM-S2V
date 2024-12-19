@@ -32,6 +32,7 @@
 #include "com_terminal.h"
 #include "app_terminal.h"
 #include "IPM.h"
+#include "circular_queue.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -58,6 +59,7 @@ UART_HandleTypeDef huart4;
 //UART_HandleTypeDef huart1;
 UART_HandleTypeDef huart3;
 
+extern CircularQueue rxQueue;// Circular queue for storing received data
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
@@ -121,7 +123,7 @@ int main(void)
     user_USART1_UART_Init();
     UART4_Init();
     USER_ADC1_Init();
-
+    CircularQueue_Init(&rxQueue);
     Gsm_Init();
 
 //  set_time(00,42,15,3,11,9,24);

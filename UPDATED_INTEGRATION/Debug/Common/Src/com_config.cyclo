@@ -1,8 +1,8 @@
-com_config.c:23:6:SystemClock_Config	3
-com_config.c:66:7:user_USART1_UART_Init	2
-com_config.c:94:7:user_GPIO_Init	3
-com_config.c:129:7:gpio_output	1
-com_config.c:141:7:gpio_input	1
-com_config.c:155:6:data_receive	2
-com_config.c:172:13:read_gpio	1
-com_config.c:178:13:write_gpio	1
+com_config.c:22:6:SystemClock_Config	3
+com_config.c:65:7:user_USART1_UART_Init	2
+com_config.c:93:7:user_GPIO_Init	3
+com_config.c:128:7:gpio_output	1
+com_config.c:140:7:gpio_input	1
+com_config.c:154:6:data_receive	2
+com_config.c:171:13:read_gpio	1
+com_config.c:177:13:write_gpio	1

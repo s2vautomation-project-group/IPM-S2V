@@ -1,7 +1,8 @@
-app_config.c:31:6:Configurator	3
-app_config.c:62:6:clear_buffer	1
-app_config.c:73:6:set_output	5
-app_config.c:97:6:reset_output	5
-app_config.c:120:6:read_pinstatus	5
-app_config.c:142:6:extract_data	3
-app_config.c:173:6:pin_config	41
+app_config.c:36:6:Configurator	1
+app_config.c:58:6:HAL_UART_RxCpltCallback	2
+app_config.c:74:6:Process_Commands	4
+app_config.c:113:6:set_output	5
+app_config.c:137:6:reset_output	5
+app_config.c:160:6:read_pinstatus	5
+app_config.c:182:6:extract_data	3
+app_config.c:213:6:pin_config	41

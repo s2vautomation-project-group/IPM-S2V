@@ -113,9 +113,7 @@ void DataToCloud(char* Time,char* Date,char* Ch1,char* Ch2,char* Ch3,char* Ch4,c
 	GsmCommands((uint8_t*)"AT+HTTPINIT\r\n");
 
 
-	snprintf((char*)AT_RTCcloud_data, sizeof(AT_RTCcloud_data),"AT+HTTPPARA=\"URL\",\"https://script.google.com/macros/s/AKfycbz-U5OxlgcTFUr2G3_0L8nzjVQorKuKofxDdJdbM2PCGmTUH6f1J4gkkEfKxTKe0T7a/exec?field1=%s&field2=%s&field3=%s&field4=%s&field5=%s&field6=%s&field7=%s&field8=%s&field9=%s&field10=%s\"\r\n",encoded_Time, encoded_Date, encoded_Ch1,encoded_Ch2,encoded_Ch3,encoded_Ch4,encoded_D1,encoded_D2,encoded_D3,encoded_D4);
-
-
+	snprintf((char*)AT_RTCcloud_data, sizeof(AT_RTCcloud_data),"AT+HTTPPARA=\"URL\",\"https://script.google.com/macros/s/AKfycbzPv_TJnae6QKLqHwXthUaTTCcSmzs7utHLzxuxEwJn_Ez4w8QNMexw4w2BpS754KAHzg/exec?field1=%s&field2=%s&field3=%s&field4=%s&field5=%s&field6=%s&field7=%s&field8=%s&field9=%s&field10=%s\"\r\n",encoded_Time, encoded_Date, encoded_Ch1,encoded_Ch2,encoded_Ch3,encoded_Ch4,encoded_D1,encoded_D2,encoded_D3,encoded_D4);
 	GsmCommands((uint8_t*)AT_RTCcloud_data);
 	GsmCommands((uint8_t*)"AT+HTTPACTION=0\r\n");
 

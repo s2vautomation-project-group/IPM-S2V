@@ -9,7 +9,7 @@
 #define INC_COM_CONFIG_H_
 
 #include "main.h"
-
+#define RX_BUFFER_SIZE 14  // UART receive buffer size
 typedef enum
 {
 	OUTPUT,

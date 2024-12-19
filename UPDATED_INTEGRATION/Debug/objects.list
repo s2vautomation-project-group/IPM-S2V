@@ -4,6 +4,7 @@
 "./Application/Src/app_RTC.o"
 "./Application/Src/app_config.o"
 "./Application/Src/app_terminal.o"
+"./Application/Src/circular_queue.o"
 "./Common/Src/com_ADC.o"
 "./Common/Src/com_GSM.o"
 "./Common/Src/com_RTC.o"

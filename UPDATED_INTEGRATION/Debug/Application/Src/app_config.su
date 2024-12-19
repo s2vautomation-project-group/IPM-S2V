@@ -1,7 +1,8 @@
-../Application/Src/app_config.c:31:6:Configurator	8	static
-../Application/Src/app_config.c:62:6:clear_buffer	8	static
-../Application/Src/app_config.c:73:6:set_output	16	static
-../Application/Src/app_config.c:97:6:reset_output	16	static
-../Application/Src/app_config.c:120:6:read_pinstatus	16	static
-../Application/Src/app_config.c:142:6:extract_data	8	static
-../Application/Src/app_config.c:173:6:pin_config	32	static
+../Application/Src/app_config.c:36:6:Configurator	8	static
+../Application/Src/app_config.c:58:6:HAL_UART_RxCpltCallback	16	static
+../Application/Src/app_config.c:74:6:Process_Commands	16	static
+../Application/Src/app_config.c:113:6:set_output	16	static
+../Application/Src/app_config.c:137:6:reset_output	16	static
+../Application/Src/app_config.c:160:6:read_pinstatus	16	static
+../Application/Src/app_config.c:182:6:extract_data	16	static
+../Application/Src/app_config.c:213:6:pin_config	32	static
