@@ -1,4 +1,0 @@
-app_RTC.c:26:9:dec_bcd	1
-app_RTC.c:33:5:bcd_dec	1
-app_RTC.c:42:6:set_time	1
-app_RTC.c:58:6:get_time	1

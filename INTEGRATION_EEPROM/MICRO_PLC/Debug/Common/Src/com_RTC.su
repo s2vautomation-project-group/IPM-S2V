@@ -1,3 +1,0 @@
-../Common/Src/com_RTC.c:17:6:USER_I2C1_Init	8	static
-../Common/Src/com_RTC.c:48:6:I2C_Write	48	static
-../Common/Src/com_RTC.c:54:6:I2C_read	32	static

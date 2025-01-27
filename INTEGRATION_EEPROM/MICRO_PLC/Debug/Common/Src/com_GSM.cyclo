@@ -1,5 +1,0 @@
-com_GSM.c:33:6:UART4_Init	2
-com_GSM.c:66:6:GsmCommands	1
-com_GSM.c:76:6:Gsm_Init	1
-com_GSM.c:94:6:DataToCloud	1
-com_GSM.c:140:7:url_encode	7

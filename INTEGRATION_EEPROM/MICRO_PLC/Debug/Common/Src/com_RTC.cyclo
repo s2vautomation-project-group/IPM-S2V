@@ -1,3 +1,0 @@
-com_RTC.c:17:6:USER_I2C1_Init	2
-com_RTC.c:48:6:I2C_Write	1
-com_RTC.c:54:6:I2C_read	1
