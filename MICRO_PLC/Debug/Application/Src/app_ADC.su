@@ -1,0 +1,2 @@
+../Application/Src/app_ADC.c:31:7:voltage_cal	8	static
+../Application/Src/app_ADC.c:37:6:ADC_handler	16	static

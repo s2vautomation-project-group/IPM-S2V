@@ -1,0 +1,5 @@
+circular_queue.c:11:6:CircularQueue_Init	1
+circular_queue.c:16:6:CircularQueue_IsFull	1
+circular_queue.c:20:6:CircularQueue_IsEmpty	1
+circular_queue.c:24:6:CircularQueue_Enqueue	2
+circular_queue.c:33:6:CircularQueue_Dequeue	2

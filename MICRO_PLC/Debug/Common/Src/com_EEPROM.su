@@ -1,0 +1,2 @@
+../Common/Src/com_EEPROM.c:18:6:Data_To_EEPROM	24	static
+../Common/Src/com_EEPROM.c:29:6:USER_I2C3_INIT	8	static

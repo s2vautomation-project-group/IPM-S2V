@@ -1,0 +1,4 @@
+../Application/Src/app_RTC.c:26:9:dec_bcd	16	static
+../Application/Src/app_RTC.c:33:5:bcd_dec	16	static
+../Application/Src/app_RTC.c:42:6:set_time	40	static
+../Application/Src/app_RTC.c:58:6:get_time	32	static

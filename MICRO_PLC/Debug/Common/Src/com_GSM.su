@@ -1,0 +1,10 @@
+../Common/Src/com_GSM.c:40:6:UART4_Init	8	static
+../Common/Src/com_GSM.c:69:6:datafromgsm	8	static
+../Common/Src/com_GSM.c:80:6:gsm_data_receive	8	static
+../Common/Src/com_GSM.c:89:6:gsm_Process_Commands	16	static
+../Common/Src/com_GSM.c:120:6:extract_http_action_response	24	static
+../Common/Src/com_GSM.c:131:6:process_gsm_command	16	static
+../Common/Src/com_GSM.c:156:6:GsmCommands	16	static
+../Common/Src/com_GSM.c:166:6:Gsm_Init	8	static
+../Common/Src/com_GSM.c:185:6:DataToCloud	616	static
+../Common/Src/com_GSM.c:240:7:url_encode	32	static

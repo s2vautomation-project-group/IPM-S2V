@@ -1,0 +1,5 @@
+../Application/Src/circular_queue.c:11:6:CircularQueue_Init	16	static
+../Application/Src/circular_queue.c:16:6:CircularQueue_IsFull	16	static
+../Application/Src/circular_queue.c:20:6:CircularQueue_IsEmpty	16	static
+../Application/Src/circular_queue.c:24:6:CircularQueue_Enqueue	16	static
+../Application/Src/circular_queue.c:33:6:CircularQueue_Dequeue	16	static

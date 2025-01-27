@@ -1,0 +1,2 @@
+../Application/Src/app_EEPROM.c:41:6:EEPROM_transmit	152	static
+../Application/Src/app_EEPROM.c:54:6:EEPROM_DataGS	48	static
