@@ -1,0 +1,8 @@
+app_config.c:42:6:Configurator	1
+app_config.c:64:6:HAL_UART_RxCpltCallback	3
+app_config.c:93:6:Process_Commands	4
+app_config.c:132:6:set_output	5
+app_config.c:156:6:reset_output	5
+app_config.c:179:6:read_pinstatus	5
+app_config.c:201:6:extract_data	3
+app_config.c:232:6:pin_config	47

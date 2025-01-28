@@ -1,0 +1,8 @@
+../Common/Src/com_GSM.c:47:6:UART4_Init	8	static
+../Common/Src/com_GSM.c:77:6:USERRCV_GPIO_Init	48	static
+../Common/Src/com_GSM.c:119:6:DataToWiFi	112	static
+../Common/Src/com_GSM.c:128:6:datafromgs	8	static
+../Common/Src/com_GSM.c:136:6:wifi_data_receive	8	static
+../Common/Src/com_GSM.c:162:6:wifi_Process_Commands	16	static
+../Common/Src/com_GSM.c:200:6:extract_wifi_data	16	static
+../Common/Src/com_GSM.c:245:6:Process_GPIO_Status	8	static
